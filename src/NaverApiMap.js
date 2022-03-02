@@ -3,7 +3,7 @@ import { RenderAfterNavermapsLoaded, NaverMap } from "react-naver-maps";
 
 export const NaverAPIMap = (props) => {
   return (
-    <RenderAfterNavermapsLoaded ncpClientId={"API KEY"}>
+    <RenderAfterNavermapsLoaded ncpClientId={""}>
       <NaverMap
         id={"map"}
         mapDivId={"react-naver-map"} // default name

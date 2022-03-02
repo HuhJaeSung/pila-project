@@ -5,7 +5,7 @@ import { RenderAfterNavermapsLoaded } from "react-naver-maps";
 
 ReactDOM.render(
   <React.StrictMode>
-    <RenderAfterNavermapsLoaded ncpClientId={"API KEY"}>
+    <RenderAfterNavermapsLoaded ncpClientId={""}>
       <App />
     </RenderAfterNavermapsLoaded>
   </React.StrictMode>,
