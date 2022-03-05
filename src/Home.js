@@ -1,5 +1,6 @@
 import React from "react";
 import NaverApiMap from "./NaverApiMap";
+import "./Home.css";
 
 function Home() {
   return (

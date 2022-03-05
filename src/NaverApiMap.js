@@ -34,7 +34,7 @@ function NaverApiMap() {
     >
       <Marker
         position={
-          typeof myPosi !== "stirng"
+          typeof myPosi !== "string"
             ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
             : new navermaps.LatLng(37.3595704, 127.105399)
         }

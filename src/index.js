@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { RenderAfterNavermapsLoaded } from "react-naver-maps";
+import "./style.css";
 
 ReactDOM.render(
   <React.StrictMode>
