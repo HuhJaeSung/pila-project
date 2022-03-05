@@ -1,12 +1,12 @@
 import React from "react";
 import Home from "./Home";
+import positions from "./data.json";
 
-function App() {
+export default function App() {
   return (
     <div>
-      <Home />
+      <Home position = {positions} />
     </div>
   );
 }
 
-export default App;
