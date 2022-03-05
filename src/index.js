@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { RenderAfterNavermapsLoaded } from "react-naver-maps";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <RenderAfterNavermapsLoaded ncpClientId={"9gnpxruwbr"}>
-      <App />
-    </RenderAfterNavermapsLoaded>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <RenderAfterNavermapsLoaded ncpClientId={"9gnpxruwbr"}>
+        <App />
+      </RenderAfterNavermapsLoaded>
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

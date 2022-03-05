@@ -1,21 +1,50 @@
-import React from "react";
-import { RenderAfterNavermapsLoaded, NaverMap } from "react-naver-maps";
+import React, { useEffect, useState } from "react";
+import { NaverMap, Marker } from "react-naver-maps";
 
-export const NaverAPIMap = (props) => {
+function NaverApiMap() {
+  const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
+
+  const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setMyPosi({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
+      });
+    } else {
+      window.alert("현재위치 Error");
+    }
+  }, []);
+  console.log(myPosi);
   return (
-    <RenderAfterNavermapsLoaded ncpClientId={"9gnpxruwbr"}>
-      <NaverMap
-        id={"map"}
-        mapDivId={"react-naver-map"} // default name
-        style={{
-          width: "100%", // 네이버지도 가로 길이 "git TEST"
-          height: "85vh", // 네이버지도 세로 길이
+    <NaverMap
+      id="maps-examples-marker"
+      style={{
+        width: "100%",
+        height: "85vh",
+      }}
+      defaultCenter={
+        typeof myPosi !== "string"
+          ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
+          : new navermaps.LatLng(37.3595704, 127.105399)
+      }
+      defaultZoom={13}
+    >
+      <Marker
+        position={
+          typeof myPosi !== "stirng"
+            ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
+            : new navermaps.LatLng(37.3595704, 127.105399)
+        }
+        animation={navermaps.Animation.BOUNCE}
+        onClick={() => {
+          alert("여기가 현재 위치 입니다.");
         }}
-        defaultCenter={{ lat: 37.554722, lng: 126.970833 }}
-        defaultZoom={10}
       />
-    </RenderAfterNavermapsLoaded>
+    </NaverMap>
   );
-};
+}
 
-export default NaverAPIMap;
+export default NaverApiMap;
