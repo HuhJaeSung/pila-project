@@ -45,9 +45,9 @@ function NaverApiMap(data) {
           alert("여기가 현재 위치 입니다.");
         }}
       />
-      {pilaPosi.map((pos) => (
+      {pilaPosi.map((pos, index) => (
         <Marker
-          key = {pos}
+          key = {index}
           position={new navermaps.LatLng(pos.lat, pos.lon)}
         />
       ))}
