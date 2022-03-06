@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
+import './NaverApiMap.css';
 
 function NaverApiMap() {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
@@ -20,11 +21,8 @@ function NaverApiMap() {
   console.log(myPosi);
   return (
     <NaverMap
+      className='map-style'
       id="maps-examples-marker"
-      style={{
-        width: "100%",
-        height: "85vh",
-      }}
       defaultCenter={
         typeof myPosi !== "string"
           ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
