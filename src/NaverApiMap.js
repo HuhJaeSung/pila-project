@@ -6,7 +6,6 @@ function NaverApiMap(data) {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
   const [pilaPosi, setPilaPosi] = useState([]);
-  console.log(data);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
