@@ -6,7 +6,6 @@ function NaverApiMap(data) {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
   const [pilaPosi, setPilaPosi] = useState([]);
-
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -19,7 +18,7 @@ function NaverApiMap(data) {
       window.alert("현재위치 Error");
     }
     setPilaPosi(data.position.position.positions);
-  }, []);
+  }, [data.position.position.positions]);
   console.log(myPosi);
   return (
     <NaverMap
@@ -30,7 +29,7 @@ function NaverApiMap(data) {
           ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
           : new navermaps.LatLng(37.3595704, 127.105399)
       }
-      defaultZoom={13}
+      defaultZoom={12}
     >
       <Marker
         position={
