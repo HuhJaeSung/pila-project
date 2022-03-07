@@ -2,15 +2,15 @@ import React from "react";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./Home";
+import positions from "./data.json";
 
-function App() {
+export default function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <Home position = {positions} />
       <Footer />
     </>
   );
 }
 
-export default App;

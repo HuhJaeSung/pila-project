@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { RenderAfterNavermapsLoaded } from "react-naver-maps";
 import { BrowserRouter } from "react-router-dom";
+import "./style.css";
 
 ReactDOM.render(
   <BrowserRouter>
