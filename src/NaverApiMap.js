@@ -7,7 +7,7 @@ function NaverApiMap(data) {
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
   const [pilaPosi, setPilaPosi] = useState([]);
 
-  useEffect(() => {
+    useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         setMyPosi({
