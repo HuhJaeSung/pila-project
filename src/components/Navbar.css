@@ -1,9 +1,13 @@
 .navbar {
   background-color: #060b26;
+  top: 0;
+  width: 100%;
+  position: fixed;
   height: 60px;
   display: flex;
   justify-content: start;
   align-items: center;
+  z-index: 9;
 }
 
 .menu-bars {
