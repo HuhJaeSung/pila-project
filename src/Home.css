@@ -1,3 +1,17 @@
-h1 {
+.outline {
+  top: 100px;
+}
+
+.container {
+  height: 800px;
+}
+
+.container h1 {
   color: blue;
+  font-size: 60px;
+}
+
+.navbar {
+  height: 60px;
+  width: 100%;
 }
