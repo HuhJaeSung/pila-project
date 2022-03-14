@@ -6,7 +6,6 @@ function Home(props) {
   return (
     <div className={"outline"}>
       <div className={"container"}>
-        <div className="navbar">hi2</div>
         <h1>This is Home.js Title Area</h1>
         <NaverApiMap position = {props}></NaverApiMap>
         <div className={"map"}></div>
