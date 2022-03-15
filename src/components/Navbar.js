@@ -8,12 +8,6 @@ import styles from './Navbar.module.css'
 import { IconContext } from 'react-icons'
 
 
-function getLinkStyle({ isActive }) {
-  return {
-    textDecoration: isActive ? 'underline': undefined,
-  }
-}
-
 function Navbar() {
   const [sidebar, setSidebar] = useState(false)
 
@@ -21,14 +15,14 @@ function Navbar() {
   return (
     <>
     <IconContext.Provider value={{color: '#fff'}}>
-      <div className="navbar">
+      <div className={styles.nav}>
         <Link to="#" className="menu-bars">
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
         <ul className={styles.menu}>
-          <li><NavLink to="/Menu1" style={getLinkStyle}>Menu1</NavLink></li>
-          <li><NavLink to="/Menu2" style={getLinkStyle}>Menu2</NavLink></li>
-          <li><NavLink to="/" style={getLinkStyle}>Menu3</NavLink></li>
+          <li><NavLink to="/Menu1" >Menu1</NavLink></li>
+          <li><NavLink to="/Menu2" >Menu2</NavLink></li>
+          <li><NavLink to="/" >Menu3</NavLink></li>
         </ul>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
