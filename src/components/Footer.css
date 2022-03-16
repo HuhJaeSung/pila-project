@@ -1,4 +1,13 @@
 .footer-background {
   background-color: #060b26;
-  height: 80px;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-background h1 {
+  color:#fff;
 }
