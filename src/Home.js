@@ -1,13 +1,17 @@
 import React from "react";
 import NaverApiMap from "./NaverApiMap";
 import "./Home.css";
+import MainData from "./components/MainData";
 
 function Home(props) {
   return (
     <div className={"outline"}>
       <div className={"container"}>
-        <h1>This is Home.js Title Area</h1>
-        <NaverApiMap position = {props}></NaverApiMap>
+        <h1>Title Area of Pilates Project</h1>
+        <div className="contents">
+          <MainData position = {props} />
+          <NaverApiMap position = {props}></NaverApiMap>
+        </div>
         <div className={"map"}></div>
       </div>
     </div>

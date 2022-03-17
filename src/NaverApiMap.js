@@ -46,6 +46,7 @@ function NaverApiMap(data) {
         <Marker
           key = {index}
           position={new navermaps.LatLng(pos.lat, pos.lon)}
+          onClick={()=> console.log('Good!')}
         />
       ))}
     </NaverMap>

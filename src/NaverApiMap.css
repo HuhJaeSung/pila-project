@@ -1,4 +1,5 @@
 .map-style {
-  width: 90%;
-  height: 60vh;
+  position: absolute;
+  width: 100%;
+  height: 70vh;;
 }

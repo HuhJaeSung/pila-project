@@ -1,0 +1,21 @@
+.bar {
+  background-color: #fff;
+  height: 70vh;
+  left: 0;
+  width: 300px;
+  display: flex;
+  
+}
+
+.ul {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  list-style: none;
+}
+
+/* .ul div {
+  background-color: orange;
+} */
