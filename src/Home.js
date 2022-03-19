@@ -9,7 +9,6 @@ function Home(props) {
       <div className={"container"}>
         <h1>Title Area of Pilates Project</h1>
         <div className="contents">
-          <MainData position = {props} />
           <NaverApiMap position = {props}></NaverApiMap>
         </div>
         <div className={"map"}></div>

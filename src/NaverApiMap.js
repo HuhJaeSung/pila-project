@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
+import MainData from "./components/MainData";
 import './NaverApiMap.css';
 
 function NaverApiMap(data) {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
   const [pilaPosi, setPilaPosi] = useState([]);
+  // const [posIndex, setPosIndex] = useState();
+
+  // const function handleIndex() 
+  
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -21,6 +27,8 @@ function NaverApiMap(data) {
   }, [data.position.position.positions]);
   console.log(myPosi);
   return (
+    <>
+    <MainData className='side-bar' position={data} />
     <NaverMap
       className='map-style'
       id="maps-examples-marker"
@@ -46,10 +54,11 @@ function NaverApiMap(data) {
         <Marker
           key = {index}
           position={new navermaps.LatLng(pos.lat, pos.lon)}
-          onClick={()=> console.log('Good!')}
+          onClick={()=> console.log(pos)}
         />
       ))}
     </NaverMap>
+    </>
   );
 }
 

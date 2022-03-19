@@ -3,3 +3,7 @@
   width: 100%;
   height: 70vh;;
 }
+
+.map-style .side-bar {
+  z-index: 9;
+}

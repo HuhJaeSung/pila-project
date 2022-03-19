@@ -9,8 +9,8 @@ function MainData(positions) {
         <div>
           Side bar AREA
         </div>
-        <li>latitude = {positions.lat}</li>
-        <li>longitude = {positions.lon}</li>
+        <li>latitude = 1 {positions.position.lat}</li>
+        <li>longitude = 2 {positions.position.lon}</li>
       </ul>
     </div>
     </>
