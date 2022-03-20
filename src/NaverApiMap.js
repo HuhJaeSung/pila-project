@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
+import useCenters from "./hooks/useCenters";
+import addToCenter from "./hooks/useActions";
 import "./NaverApiMap.css";
 
-function NaverApiMap(data) {
+function NaverApiMap() {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
+  const centers = useCenters();
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
-  const [pilaPosi, setPilaPosi] = useState([]);
+  // const [pilaPosi, setPilaPosi] = useState([]);
   // const [posIndex, setPosIndex] = useState();
 
   // const function handleIndex()
@@ -21,7 +24,6 @@ function NaverApiMap(data) {
     } else {
       window.alert("현재위치 Error");
     }
-    setPilaPosi(data.position.position.positions);
   }, []);
   console.log(myPosi);
   return (
@@ -47,11 +49,12 @@ function NaverApiMap(data) {
             alert("여기가 현재 위치 입니다.");
           }}
         />
-        {pilaPosi.map((pos, index) => (
+
+        {centers.map((pos) => (
           <Marker
-            key={index}
-            position={new navermaps.LatLng(pos.lat, pos.lon)}
-            onClick={() => console.log(pos)}
+            key={pos.id}
+            position={new navermaps.LatLng(pos.position.lat, pos.position.lon)}
+            onClick={() => addToCenter(pos.id)}
           />
         ))}
       </NaverMap>
