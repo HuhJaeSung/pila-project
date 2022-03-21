@@ -1,4 +1,12 @@
 .map-style {
-  width: 90%;
-  height: 85vh;
+  position: absolute;
+  width: 80%;
+  height: 70vh;
+}
+
+.map-style .side-bar {
+  z-index: 9;
+}
+.button {
+  z-index: 10;
 }

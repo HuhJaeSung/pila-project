@@ -1,3 +1,26 @@
-h1 {
-  color: blue;
+.outline {
+  top: 100px;
+}
+
+.container {
+  height: 800px;
+}
+
+.container h1 {
+  background-color: #fff;
+  position: relative;
+  top: 30px;
+  color: navy;
+  font-size: 60px;
+}
+
+.navbar {
+  height: 60px;
+  width: 100%;
+}
+
+.contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }

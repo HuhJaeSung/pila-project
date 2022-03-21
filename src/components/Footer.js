@@ -1,11 +1,12 @@
 import React from 'react'
+import './Footer.css'
 
 function Footer() {
   return (
     <>
-      <div className='footer-background'>
-        <h1>Hi!</h1>
-      </div>
+    <div className='footer-background'>
+      <h1>This is Footer Area!!!</h1>
+    </div>
     </>
   )
 }
