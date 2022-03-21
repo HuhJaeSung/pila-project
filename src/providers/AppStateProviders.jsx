@@ -54,9 +54,10 @@ const AppStateProvider = ({ children }) => {
   ]);
   const [center, setCenter] = useState([]);
   const addToCenter = useCallback((id) => {
+    console.log(id);
     setCenter(centers.find((c) => c.id === id));
-    return center;
-  });
+  }, []);
+
   return (
     <AppStateContext.Provider
       value={{

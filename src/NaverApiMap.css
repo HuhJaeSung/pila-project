@@ -7,3 +7,6 @@
 .map-style .side-bar {
   z-index: 9;
 }
+.button {
+  z-index: 10;
+}
