@@ -6,7 +6,7 @@ function Classbar() {
   const showClassbar = () => setClassbar(!classbar);
   return (
     <>
-    <div className={styles.bar} onClick={showClassbar}>
+    <div className={classbar ? styles.bar.active : styles.bar } onClick={showClassbar}>
       Hello, World!
       {console.log(classbar)}
     </div>
