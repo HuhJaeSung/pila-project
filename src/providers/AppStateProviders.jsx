@@ -92,7 +92,6 @@ const AppStateProvider = ({ children }) => {
 
   const addToCenter = useCallback(
     (id) => {
-      console.log(id);
       if (!sidebar) {
         toggleSide();
       }

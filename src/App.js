@@ -9,13 +9,13 @@ import "./App.css";
 export default function App() {
   return (
     <AppStateProvider>
-      <div style={{ flexDirection: "column" }} className="containers">
-        <Navbar style={{ flex: 1 }} className="navbar" />
-        <div style={{ flex: 8 }} className="details">
+      <div className="containers">
+        <Navbar className="navbar" />
+        <div className="details">
           <MainData className="MainData" />
           <NaverApiMap className="Map" />
         </div>
-        <Footer style={{ flex: 1 }} className="footer" />
+        <Footer className="footer" />
       </div>
     </AppStateProvider>
   );
