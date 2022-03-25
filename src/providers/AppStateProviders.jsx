@@ -6,64 +6,109 @@ const AppStateProvider = ({ children }) => {
     {
       id: "pi-1",
       title: "당근 필라",
-      teacher: 7,
-      desc: "소도구 중심 필라테스 입니다.",
-      floor: 3,
-      price: 30000,
+      location: "서울시 도봉구",
+      hours: "10시 ~ 20시",
       position: {
         lat: 37.27943075229118,
         lon: 127.01763998406159,
       },
+      class: [
+        {
+          date: "2022-02-22",
+          price: 30000,
+          phonenumber: "010XXXXXXXX",
+          classtype: ["그룹"],
+          taxfree: true,
+          desc: "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX",
+        },
+      ],
     },
     {
       id: "pi-2",
       title: "수박 필라",
-      teacher: 5,
-      desc: "개인 전문 업체 입니다.",
-      floor: 2,
-      price: 30000,
+      location: "서울시 종로구",
+      hours: "10시 ~ 20시",
       position: {
         lat: 37.55915668706214,
         lon: 126.92536526611102,
       },
+      class: [
+        {
+          date: "2022-02-22",
+          price: 30000,
+          phonenumber: "010XXXXXXXX",
+          classtype: ["그룹"],
+          taxfree: true,
+          desc: "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX",
+        },
+      ],
     },
     {
       id: "pi-3",
-      title: "딸리 필라",
-      teacher: 8,
-      desc: "단체 전문 업체 입니다.",
-      floor: 8,
-      price: 15000,
+      title: "딸기 필라",
+      location: "서울시 종로구",
+      hours: "10시 ~ 20시",
       position: {
         lat: 35.13854258261161,
         lon: 129.1014781294671,
       },
+      class: [
+        {
+          date: "2022-02-22",
+          price: 15000,
+          phonenumber: "010XXXXXXXX",
+          classtype: ["그룹"],
+          taxfree: true,
+          desc: "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX",
+        },
+      ],
     },
     {
       id: "pi-4",
       title: "멜론 필라",
-      teacher: 4,
-      desc: "기구 전문 업체입니다.",
-      floor: 3,
-      price: 20000,
+      location: "서울시 종로구",
+      hours: "10시 ~ 20시",
       position: {
         lat: 37.55518388656961,
         lon: 126.92926237742505,
       },
+      class: [
+        {
+          date: "2022-02-22",
+          price: 20000,
+          phonenumber: "010XXXXXXXX",
+          classtype: ["그룹"],
+          taxfree: true,
+          desc: "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX",
+        },
+      ],
     },
   ]);
   const [center, setCenter] = useState([]);
-  const addToCenter = useCallback((id) => {
-    console.log(id);
-    setCenter(centers.find((c) => c.id === id));
-  }, []);
+  const [sidebar, setSidebar] = useState(false);
+  const toggleSide = useCallback(() => {
+    setSidebar(!sidebar);
+  }, [sidebar]);
+
+  const addToCenter = useCallback(
+    (id) => {
+      console.log(id);
+      if (!sidebar) {
+        toggleSide();
+      }
+      setCenter(centers.find((c) => c.id === id));
+    },
+    [centers]
+  );
 
   return (
     <AppStateContext.Provider
       value={{
         centers,
         center,
+        sidebar,
         addToCenter,
+        toggleSide,
       }}
     >
       {children}

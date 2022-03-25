@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
-import useCenters from "./hooks/useCenters";
-import useActions from "./hooks/useActions";
+import useCenters from "../hooks/useCenters";
+import useActions from "../hooks/useActions";
 import "./NaverApiMap.css";
-import MainData from "./components/MainData";
 
 function NaverApiMap() {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
@@ -66,7 +65,6 @@ function NaverApiMap() {
           );
         })}
       </NaverMap>
-      <MainData className="side-bar" />
     </>
   );
 }
