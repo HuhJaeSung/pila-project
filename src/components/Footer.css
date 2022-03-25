@@ -1,6 +1,6 @@
 .footer-background {
   background-color: #060b26;
-  height: 100px;
+  height: 10vh;
   bottom: 0;
   width: 100%;
   display: flex;
@@ -9,5 +9,5 @@
 }
 
 .footer-background h1 {
-  color:#fff;
+  color: #fff;
 }
