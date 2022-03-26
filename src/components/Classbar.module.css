@@ -1,20 +1,11 @@
 .bar {
-  background-color: white;
+  background-color: orange;
   width: 250px;
   height: 100vh;
   justify-content: center;
   position: fixed;
   top: 0;
-  left: 50%;
-  transition: 850ms;
-  z-index: 8;
-}
-
-.bar.active {
-  left: 0;
+  left: 250px;
   transition: 350ms;
-  z-index: 9;
-  background-color: yellow;
-  width: 100px;
-  height: 100px;
+  z-index: 8;
 }

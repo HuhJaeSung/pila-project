@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Classbar.module.css';
 
-function Classbar() {
-  const [classbar, setClassbar] = useState(false);
-  const showClassbar = () => setClassbar(!classbar);
+function Classbar({ index }) {
+  console.log(index)
   return (
     <>
-    <div className={classbar ? styles.bar.active : styles.bar } onClick={showClassbar}>
+    <div className={styles.bar}>
       Hello, World!
-      {console.log(classbar)}
     </div>
     </>
   );

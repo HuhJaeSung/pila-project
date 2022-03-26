@@ -6,12 +6,15 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css'
 import styles from './Navbar.module.css'
 import { IconContext } from 'react-icons'
+import Classbar from './Classbar';
 
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false)
+  const [classbar, setClassbar] = useState(false)
 
   const showSidebar = () => setSidebar(!sidebar)
+  const showClassbar = () => setClassbar(!classbar)
   return (
     <>
     <IconContext.Provider value={{color: '#fff'}}>
@@ -35,8 +38,9 @@ function Navbar() {
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
-                <Link to={item.path}>
+                <Link to={item.path} onClick={showClassbar}>
                   {item.icon}
+                  {classbar && <Classbar props={index} />}
                   <span>{item.title}</span>
                 </Link>  
               </li>
