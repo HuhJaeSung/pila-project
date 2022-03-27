@@ -1,13 +1,15 @@
 import React from "react";
 import useCenter from "../hooks/useCenter";
+import useCourses from "../hooks/useCourses";
 import useSiderbar from "../hooks/useSiderbar";
+import CourseinfoCard from "./CourseinfoCard";
 import "./MainData.css";
 
 function MainData() {
   const center = useCenter();
   const sidebar = useSiderbar();
 
-  const { id, title, location, hours } = center;
+  const { id, title, location, hours, courses } = center;
   return (
     <nav className={sidebar ? "centers active" : "centers"}>
       <div className="container">
@@ -18,6 +20,22 @@ function MainData() {
         </div>
         <p className="center__location">위치 : {location}</p>
         <p className="center__hours">영업시간 : {hours}</p>
+      </div>
+      {/* <div className="courses">
+        {courses.map((course) => (
+          <CourseinfoCard key={course.id} course={courses} />
+        ))}
+      </div> */}
+      <div>
+        {!courses ? (
+          <h1>Loading</h1>
+        ) : (
+          <div className="courses">
+            {courses.map((course) => (
+              <CourseinfoCard key={course.id} course={course} />
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
