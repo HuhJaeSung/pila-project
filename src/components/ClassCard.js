@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './ClassCard.module.css';
 
-function ClassCard({ children }) {
+function ClassCard() {
   return (
     <>
-      <div className={styles.card}>hi!</div>
+      <div className={styles.card}>hello!</div>
     </>
   );
 }

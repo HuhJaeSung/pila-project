@@ -22,9 +22,15 @@ function Navbar() {
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
         <ul className="menu">
-          <li><NavLink to="/Menu1" >Menu1</NavLink></li>
-          <li><NavLink to="/Menu2" >Menu2</NavLink></li>
-          <li><NavLink to="/" >Menu3</NavLink></li>
+          <li>
+            <NavLink to="/Menu1">구해요</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Menu2">놀아요</NavLink>
+          </li>
+          <li>
+            <NavLink to="/">Menu3</NavLink>
+          </li>
         </ul>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>

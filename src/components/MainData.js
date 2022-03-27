@@ -1,43 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import useCenter from "../hooks/useCenter";
+import useCourses from "../hooks/useCourses";
+import useSiderbar from "../hooks/useSiderbar";
+import Classbar from "./Classbar";
+import CourseinfoCard from "./CourseinfoCard";
+import "./MainData.css";
 
 function MainData() {
   const center = useCenter();
+  const sidebar = useSiderbar();
+  const [classbar, setClassbar] = useState(false);
 
-  if (center.length === 0) {
-    return (
-      <aside>
-        <div className="empty">
-          <div className="title">You don't have any find</div>
-          <div className="subtitle">
-            Click on a Marker to show center describe
-          </div>
-        </div>
-      </aside>
-    );
+  const showClassbar = () => {
+    console.log(`${classbar}`);
+    setClassbar(!classbar)
   }
 
-  const { id, title, teacher, desc, floor, price, position } = center;
+  const { id, title, location, hours, courses } = center;
   return (
-    <main>
-      <div className="centers">
-        <div className="center" key={id}>
-          <div className="center__body">
-            <div className="center__title"></div>
-            {title}
+    <>
+      <nav className={sidebar ? "centers active" : "centers"}>
+        <div className="container">
+          <div className="center" key={id}>
+            <div className="center__title">
+              <h2>{title}</h2>
+            </div>
           </div>
-          <div className="center__detail">
-            <p className="center__teacher">강사 : {teacher}분</p>
-            <p className="center__floor">{floor}층</p>
-            <p className="center__price"> 가격 : 평균 {price}원 </p>
-            <p className="center__desc">{desc}</p>
-            <p className="center__position">
-              {position.lat} / {position.lon}
-            </p>
-          </div>
+          <p className="center__location">위치 : {location}</p>
+          <p className="center__hours">영업시간 : {hours}</p>
         </div>
-      </div>
-    </main>
+        {/* <div className="courses">
+          {courses.map((course) => (
+            <CourseinfoCard key={course.id} course={courses} />
+          ))}
+        </div> */}
+        <div>
+          {!courses ? (
+            <h1>Loading</h1>
+          ) : (
+            <div className="courses" onClick={() => {
+              showClassbar();
+              }}>
+              {courses.map((course) => (
+                <CourseinfoCard key={course.id} course={course} />
+              ))}
+            </div>
+          )}
+        </div>
+      </nav>
+      {<Classbar course={courses} open={classbar} />}
+    </>
   );
 }
 

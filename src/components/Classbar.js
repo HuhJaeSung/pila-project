@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import styles from './Classbar.module.css';
 import ClassCard from './ClassCard';
 
-function Classbar({props}) {
-  console.log(props)
+function Classbar({course, open}) {
+  console.log(course)
   return (
     <>
-      <div className={props ? styles.bar : styles.de }>
+      <div className={open ? styles.bar : styles.de }>
         두번째 사이드 바
         <ul>
           <li>
