@@ -4,7 +4,6 @@ import * as AiIcons from "react-icons/ai";
 import { Link, NavLink } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css'
-import styles from './Navbar.module.css'
 import { IconContext } from 'react-icons'
 import Classbar from './Classbar';
 
@@ -18,11 +17,11 @@ function Navbar() {
   return (
     <>
     <IconContext.Provider value={{color: '#fff'}}>
-      <div className={styles.nav}>
+      <div className="nav">
         <Link to="#" className="menu-bars">
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
-        <ul className={styles.menu}>
+        <ul className="menu">
           <li><NavLink to="/Menu1" >Menu1</NavLink></li>
           <li><NavLink to="/Menu2" >Menu2</NavLink></li>
           <li><NavLink to="/" >Menu3</NavLink></li>
@@ -32,22 +31,33 @@ function Navbar() {
         <ul className='nav-menu-items'>
           <li className='navbar-toggle'>
             <Link to="#" className='menu-bars'>
-              <AiIcons.AiOutlineClose onClick={showSidebar} />
+              <AiIcons.AiOutlineClose onClick={() => {
+                showSidebar();
+                if (classbar) {
+                  showClassbar();
+                }
+              }} />
             </Link>
           </li>
           {SidebarData.map((item, index) => {
             return (
               <li key={index} className={item.cName}>
-                <Link to={item.path} onClick={showClassbar}>
+                <Link to={item.path} onClick={() => {
+                  if (!classbar) {
+                    showClassbar();
+                  }
+                }}>
                   {item.icon}
-                  {classbar && <Classbar props={index} />}
+                  
                   <span>{item.title}</span>
                 </Link>  
               </li>
             )
           })}
         </ul>
+        
       </nav>
+      {<Classbar props={classbar} />}
       </IconContext.Provider>
     </>
   )

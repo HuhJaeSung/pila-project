@@ -1,11 +1,23 @@
 .bar {
-  background-color: orange;
-  width: 250px;
+  background-color: white;
+  width: 350px;
   height: 100vh;
   justify-content: center;
   position: fixed;
   top: 0;
-  left: 250px;
+  left: 249px;
   transition: 350ms;
-  z-index: 8;
+  z-index: 3;
+}
+
+.de {
+  background-color: white;
+  width: 350px;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 700ms;
+  z-index: 2;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ClassInfo.module.css';
+import styles from './ClassCard.module.css';
 
 function ClassCard({ children }) {
   return (
