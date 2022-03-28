@@ -21,7 +21,11 @@ function MainData() {
           <p className="center__location">위치 : {location}</p>
           <p className="center__hours">영업시간 : {hours}</p>
         </div>
-
+        {/* <div className="courses">
+          {courses.map((course) => (
+            <CourseinfoCard key={course.id} course={courses} />
+          ))}
+        </div> */}
         <div>
           {!courses ? (
             <h1>Loading</h1>

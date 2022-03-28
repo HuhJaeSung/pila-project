@@ -1,7 +1,17 @@
 .card {
-  width: 100px;
-  height: 100px;
-  background-color: orange;
+  left: 375px;
+  width: 300px;
+  height: 100vh;
+  background-color: lemonchiffon;
   justify-content: center;
   align-items: center;
+  position: absolute;
+}
+
+.card li {
+  list-style: none;
+}
+
+.card p {
+  padding: 5px;
 }
