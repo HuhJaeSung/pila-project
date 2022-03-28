@@ -115,7 +115,6 @@ const AppStateProvider = ({ children }) => {
     },
   ]);
   const [center, setCenter] = useState([]);
-  const [courses, setCourses] = useState([]);
   const [sidebar, setSidebar] = useState(false);
   const toggleSide = useCallback(() => {
     setSidebar(!sidebar);
@@ -128,7 +127,6 @@ const AppStateProvider = ({ children }) => {
       }
       const find = centers.find((c) => c.id === id);
       setCenter(find);
-      setCourses(find.courses);
     },
     [center]
   );
@@ -139,7 +137,6 @@ const AppStateProvider = ({ children }) => {
         centers,
         center,
         sidebar,
-        courses,
         addToCenter,
         toggleSide,
       }}
