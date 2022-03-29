@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { render } from "@testing-library/react";
+import React, { useEffect, useState } from "react";
 import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
@@ -7,12 +8,13 @@ import styles from "./CourseinfoCard.module.css";
 // };
 
 function CourseinfoCard({ course }) {
-  const [infobar, setInfobar] = useState(false);
-  const handleBar = () => {
-    setInfobar(!infobar);
+  const [detailbar, setDetailbar] = useState(false);
+  console.log(detailbar, 4);
+  const handleDetail = () => {
+    setDetailbar(!detailbar);
+    render(<CourseDetail info={course} detailbar={detailbar} />);
   };
 
-  console.log(infobar);
   return (
     <>
       <div>
@@ -20,7 +22,7 @@ function CourseinfoCard({ course }) {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div className={styles.container} onClick={handleBar}>
+            <div className={styles.container} onClick={handleDetail}>
               <div className="course" key={course.id}>
                 <div className="course__title">
                   <h2>{course.date}</h2>
@@ -32,7 +34,7 @@ function CourseinfoCard({ course }) {
           </div>
         )}
       </div>
-      {infobar && <CourseDetail info={course} />}
+      {/* {detailbar && <CourseDetail info={course} />} */}
     </>
   );
 }

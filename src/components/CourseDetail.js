@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CourseDatail.module.css";
 
-function CourseDetail({ info }) {
+function CourseDetail({ info, detailbar }) {
   return (
     <>
       <div className={styles.card}>
@@ -13,7 +13,7 @@ function CourseDetail({ info }) {
                 <p>date: {info.date}</p>
                 <p>price: {info.price}</p>
                 <p>phonenumber: {info.phonenumber}</p>
-                <p>taxfree: {info.taxfree}</p>
+                <p>{info.taxfree && "Tax Free"}</p>
               </>
             )}
           </li>

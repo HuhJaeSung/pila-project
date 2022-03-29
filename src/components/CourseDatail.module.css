@@ -1,12 +1,26 @@
 .card {
+  top: 0px;
   left: 375px;
   width: 300px;
   height: 100vh;
   background-color: lemonchiffon;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  z-index: 3;
 }
+
+/* .baroff {
+  top: 0px;
+  left: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: lemonchiffon;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 3;
+} */
 
 .card li {
   list-style: none;
