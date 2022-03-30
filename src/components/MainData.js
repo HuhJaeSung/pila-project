@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import useActions from "../hooks/useActions";
 import useCenter from "../hooks/useCenter";
 import useSiderbar from "../hooks/useSiderbar";
 import CourseinfoCard from "./CourseinfoCard";
@@ -7,6 +9,7 @@ import "./MainData.css";
 function MainData() {
   const center = useCenter();
   const sidebar = useSiderbar();
+  const setMode = useActions();
 
   const { id, title, location, hours, courses } = center;
   return (
@@ -21,19 +24,23 @@ function MainData() {
           <p className="center__location">위치 : {location}</p>
           <p className="center__hours">영업시간 : {hours}</p>
         </div>
-        {/* <div className="courses">
-          {courses.map((course) => (
-            <CourseinfoCard key={course.id} course={courses} />
-          ))}
-        </div> */}
         <div>
-          {!courses ? (
-            <h1>Loading</h1>
-          ) : (
-            <div className="courses">
-              {courses.map((course) => (
-                <CourseinfoCard key={course.id} course={course} />
-              ))}
+          {courses && (
+            <div>
+              {courses.length === 0 ? (
+                <div>
+                  <h1> 등록된 강좌가 없습니다.</h1>
+                </div>
+              ) : (
+                <div className="courses">
+                  {courses.map((course) => (
+                    <CourseinfoCard key={course.id} course={course} />
+                  ))}
+                </div>
+              )}
+              <Link to={`form/${center.id}`}>
+                <button>강좌 등록하기</button>
+              </Link>
             </div>
           )}
         </div>

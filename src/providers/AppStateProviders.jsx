@@ -44,6 +44,7 @@ const AppStateProvider = ({ children }) => {
       },
       courses: [
         {
+          id: "cl-1",
           date: "2022-02-22",
           price: 30000,
           phonenumber: "010XXXXXXXX",
@@ -64,6 +65,7 @@ const AppStateProvider = ({ children }) => {
       },
       courses: [
         {
+          id: "cl-1",
           date: "2022-02-22",
           price: 15000,
           phonenumber: "010XXXXXXXX",
@@ -84,6 +86,7 @@ const AppStateProvider = ({ children }) => {
       },
       courses: [
         {
+          id: "cl-1",
           date: "2022-02-22",
           price: 20000,
           phonenumber: "010XXXXXXXX",
@@ -102,20 +105,12 @@ const AppStateProvider = ({ children }) => {
         lat: 35.93282824693927,
         lon: 126.95307628834287,
       },
-      courses: [
-        {
-          date: "2022-03-23",
-          price: 20000,
-          phonenumber: "010XXXXXXXX",
-          classtype: ["그룹"],
-          taxfree: true,
-          desc: "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX",
-        },
-      ],
+      courses: [],
     },
   ]);
   const [center, setCenter] = useState([]);
   const [sidebar, setSidebar] = useState(false);
+  const [mode, setMode] = useState("CREATE");
   const toggleSide = useCallback(() => {
     setSidebar(!sidebar);
   }, [sidebar]);
@@ -137,6 +132,7 @@ const AppStateProvider = ({ children }) => {
         centers,
         center,
         sidebar,
+        mode,
         addToCenter,
         toggleSide,
       }}
