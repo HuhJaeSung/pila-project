@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useCenter from "../hooks/useCenter";
 import useSiderbar from "../hooks/useSiderbar";
 import CourseinfoCard from "./CourseinfoCard";
@@ -7,6 +7,7 @@ import "./MainData.css";
 function MainData() {
   const center = useCenter();
   const sidebar = useSiderbar();
+  const [coursebar, setCoursebar] = useState(false);
 
   const { id, title, location, hours, courses } = center;
   return (
@@ -32,7 +33,7 @@ function MainData() {
           ) : (
             <div className="courses">
               {courses.map((course) => (
-                <CourseinfoCard key={course.id} course={course} />
+                <CourseinfoCard key={course.id} course={course} bar={coursebar} />
               ))}
             </div>
           )}

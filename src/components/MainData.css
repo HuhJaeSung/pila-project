@@ -15,6 +15,7 @@
   left: 0;
   transition: 350ms;
   z-index: 9;
+  opacity: .5;
 }
 
 .empty {

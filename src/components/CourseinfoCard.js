@@ -7,12 +7,17 @@ import styles from "./CourseinfoCard.module.css";
 //   console.log("Hi!", `${course}`);
 // };
 
-function CourseinfoCard({ course }) {
-  const [detailbar, setDetailbar] = useState(false);
-  console.log(detailbar, 4);
+function CourseinfoCard({ course, bar }) {
+  console.log(bar, 'bar Prop')
+  const [coursebar, setCoursebar] = useState(bar);
+  console.log(coursebar, 'bar');
   const handleDetail = () => {
-    setDetailbar(!detailbar);
-    render(<CourseDetail info={course} detailbar={detailbar} />);
+    console.log(coursebar, 1)
+    if (!coursebar) {
+      setCoursebar(!coursebar);
+    }
+    return console.log(coursebar, 'return')
+    // render(<CourseDetail info={course} detailbar={detailbar} />);
   };
 
   return (
@@ -34,7 +39,6 @@ function CourseinfoCard({ course }) {
           </div>
         )}
       </div>
-      {/* {detailbar && <CourseDetail info={course} />} */}
     </>
   );
 }
