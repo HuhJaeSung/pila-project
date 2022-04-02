@@ -32,9 +32,13 @@ function MainData() {
             <h1>Loading</h1>
           ) : (
             <div className="courses">
-              {courses.map((course) => (
-                <CourseinfoCard key={course.id} course={course} bar={coursebar} />
-              ))}
+              {courses.map((course) => {
+                console.log(123)
+                return (
+                  <CourseinfoCard key={course.id} course={course} bar={coursebar} />
+                )
+              }
+              )}
             </div>
           )}
         </div>

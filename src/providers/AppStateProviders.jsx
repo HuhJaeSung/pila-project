@@ -130,18 +130,18 @@ const AppStateProvider = ({ children }) => {
       if (!sidebar) {
         toggleSide();
       }
+
       const find = centers.find((c) => c.id === id);
       setCenter(find);
     },
     [center]
   );
-
   const addToCourse = useCallback(
     (id) => {
       if (!coursebar) {
         toggleCourse();
       }
-      const find = courses.find((c) => c.id === id);
+      const find = centers.courses.find((c) => c.id === id);
       setCoursebar(find)
     }
   )

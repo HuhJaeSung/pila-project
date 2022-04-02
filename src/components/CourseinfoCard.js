@@ -16,8 +16,8 @@ function CourseinfoCard({ course, bar }) {
     if (!coursebar) {
       setCoursebar(!coursebar);
     }
-    return console.log(coursebar, 'return')
-    // render(<CourseDetail info={course} detailbar={detailbar} />);
+    // return console.log(coursebar, 'return')
+    render(<CourseDetail info={course} detailbar={coursebar} />);
   };
 
   return (

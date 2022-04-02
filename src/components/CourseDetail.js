@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./CourseDatail.module.css";
 
-function CourseDetail({ info, bar }) {
-  console.log(bar, 'InCourseDetail Component')
+function CourseDetail({ info, detailbar }) {
+  console.log(detailbar, 'InCourseDetail Component')
   return (
     <>
-      {bar && (
+      {detailbar && (
         <div className={styles.card}>
           <ul>
             <li>
