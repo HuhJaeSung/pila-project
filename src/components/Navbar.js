@@ -6,10 +6,12 @@ import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
 import Classbar from "./Classbar";
+import useActions from "../hooks/useActions";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const [classbar, setClassbar] = useState(false);
+  const { setMode } = useActions();
 
   const showSidebar = () => setSidebar(!sidebar);
   const showClassbar = () => setClassbar(!classbar);
@@ -21,7 +23,11 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <ul className="menu">
-            <li>
+            <li
+              onClick={() => {
+                setMode("CREATE");
+              }}
+            >
               <NavLink to="/form">등록하기</NavLink>
             </li>
             <li>

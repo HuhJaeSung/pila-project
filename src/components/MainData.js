@@ -9,7 +9,9 @@ import "./MainData.css";
 function MainData() {
   const center = useCenter();
   const sidebar = useSiderbar();
-  const setMode = useActions();
+  const { deleteCenter, setMode } = useActions();
+
+  const handleDelelte = () => deleteCenter(center.id);
 
   const { id, title, location, hours, courses } = center;
   return (
@@ -19,6 +21,7 @@ function MainData() {
           <div className="center" key={id}>
             <div className="center__title">
               <h2>{title}</h2>
+              <button onClick={handleDelelte}>센터 삭제하기</button>
             </div>
           </div>
           <p className="center__location">위치 : {location}</p>
@@ -39,7 +42,13 @@ function MainData() {
                 </div>
               )}
               <Link to={`form/${center.id}`}>
-                <button>강좌 등록하기</button>
+                <button
+                  onClick={() => {
+                    setMode("CREATE");
+                  }}
+                >
+                  강좌 등록하기
+                </button>
               </Link>
             </div>
           )}

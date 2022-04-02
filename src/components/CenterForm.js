@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import useActions from "../hooks/useActions";
+import useCenters from "../hooks/useCenters";
+import useMode from "../hooks/useMode";
 
 function Welcome() {
   return <h1>Center 등록 페이지</h1>;
@@ -15,7 +18,7 @@ function Create() {
       >
         <div>
           <p>
-            <input type="text" name="title" />
+            <input type="text" name="title" placeholder="Center 이름" />
           </p>
           <p>
             <input
@@ -39,7 +42,9 @@ function Update() {
 }
 
 function CenterForm() {
-  const [mode, setMode] = useState("CREATE");
+  const centers = useCenters();
+  const { setCenters } = useActions();
+  const mode = useMode();
   const [id, setId] = useState(null);
   let content = null;
 

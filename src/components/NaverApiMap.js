@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NaverMap, Marker } from "react-naver-maps";
 import useCenters from "../hooks/useCenters";
 import useActions from "../hooks/useActions";
-import { Link } from "react-router-dom";
 import "./NaverApiMap.css";
-import MainData from "./MainData";
 
 function NaverApiMap() {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용

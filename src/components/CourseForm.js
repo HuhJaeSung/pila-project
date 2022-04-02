@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import useActions from "../hooks/useActions";
 import useMode from "../hooks/useMode";
 
 function Update() {
-  return <></>;
+  return (
+    <>
+      <h1>수정하는 곳</h1>
+    </>
+  );
 }
 
 function Create() {
@@ -67,7 +72,7 @@ function Welcome() {
 }
 
 function CourseForm() {
-  const [mode, setMode] = useState("CREATE");
+  const mode = useMode();
   const [id, setId] = useState(null);
   let content = null;
 
