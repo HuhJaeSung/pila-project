@@ -1,0 +1,17 @@
+.card {
+  left: 375px;
+  width: 300px;
+  height: 100%;
+  background-color: lemonchiffon;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.card li {
+  list-style: none;
+}
+
+.card p {
+  padding: 5px;
+}

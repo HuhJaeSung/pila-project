@@ -1,0 +1,23 @@
+.bar {
+  background-color: skyblue;
+  width: 350px;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 375px;
+  transition: 350ms;
+  z-index: 3;
+}
+
+.de {
+  background-color: white;
+  width: 350px;
+  height: 100vh;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 350ms;
+  z-index: 2;
+}

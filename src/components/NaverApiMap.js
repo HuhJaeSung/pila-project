@@ -55,13 +55,15 @@ function NaverApiMap() {
             addToCenter(pos.id);
           };
           return (
-            <Marker
-              key={pos.id}
-              position={
-                new navermaps.LatLng(pos.position.lat, pos.position.lon)
-              }
-              onClick={click}
-            />
+            <div key={pos.id}>
+              <Marker
+                key={pos.id}
+                position={
+                  new navermaps.LatLng(pos.position.lat, pos.position.lon)
+                }
+                onClick={click}
+              />
+            </div>
           );
         })}
       </NaverMap>
