@@ -5,7 +5,6 @@ import { Link, NavLink } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import "./Navbar.css";
 import { IconContext } from "react-icons";
-import Classbar from "./Classbar";
 import useActions from "../hooks/useActions";
 
 function Navbar() {
@@ -72,7 +71,6 @@ function Navbar() {
             })}
           </ul>
         </nav>
-        {<Classbar props={classbar} />}
       </IconContext.Provider>
     </>
   );

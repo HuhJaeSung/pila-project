@@ -29,6 +29,7 @@ const AppStateProvider = ({ children }) => {
       if (!sidebar) {
         setSidebar(true);
       }
+
       const find = centers.find((c) => c.id === id);
       setCenter(find);
     },
