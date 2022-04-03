@@ -1,20 +1,22 @@
 import { render } from "@testing-library/react";
 import React, { useState } from "react";
+import useActions from "../hooks/useActions";
 import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
-function CourseinfoCard({ course, bar }) {
-  console.log(bar, "bar Prop");
-  const [coursebar, setCoursebar] = useState(bar);
-  console.log(coursebar, "bar");
-  const handleDetail = () => {
-    console.log(coursebar, 1);
-    if (!coursebar) {
-      setCoursebar(!coursebar);
-    }
-    // return console.log(coursebar, 'return')
-    render(<CourseDetail info={course} detailbar={coursebar} />);
-  };
+function CourseinfoCard({ course }) {
+  const { toggleSide } = useActions();
+  // console.log(bar, "bar Prop");
+  // const [coursebar, setCoursebar] = useState(false);
+  // console.log(coursebar, "bar");
+  // const handleDetail = () => {
+  //   console.log(coursebar, 1);
+  //   if (!coursebar) {
+  //     setCoursebar(!coursebar);
+  //   }
+  //   // return console.log(coursebar, 'return')
+  //   render(<CourseDetail info={course} detailbar={coursebar} />);
+  // };
 
   return (
     <>
@@ -23,7 +25,7 @@ function CourseinfoCard({ course, bar }) {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div className={styles.container} onClick={handleDetail}>
+            <div className={styles.container}>
               <div className="course" key={course.id}>
                 <div className="course__title">
                   <h2>{course.date}</h2>
@@ -35,6 +37,7 @@ function CourseinfoCard({ course, bar }) {
           </div>
         )}
       </div>
+      <CourseDetail info={course} />
     </>
   );
 }

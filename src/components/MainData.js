@@ -8,8 +8,8 @@ import "./MainData.css";
 
 function MainData() {
   const center = useCenter();
-  const sidebar = useSiderbar();
-  const { deleteCenter, setMode } = useActions();
+  const { sidebar } = useSiderbar();
+  const { deleteCenter, setMode, toggleCourse } = useActions();
 
   const handleDelelte = () => deleteCenter(center.id);
 
@@ -35,9 +35,13 @@ function MainData() {
                   <h1> 등록된 강좌가 없습니다.</h1>
                 </div>
               ) : (
-                <div className="courses">
+                <div className="courses" onClick={()=> {
+                  console.log("hi")
+                }}>
                   {courses.map((course) => (
-                    <CourseinfoCard key={course.id} course={course} />
+                    <div onClick={toggleCourse}>
+                      <CourseinfoCard key={course.id} course={course} />
+                    </div>
                   ))}
                 </div>
               )}
