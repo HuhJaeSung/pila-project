@@ -8,6 +8,7 @@ export default function useActions() {
     setMode,
     setCenters,
     setCenter,
+    setSidebar,
     deleteCenter,
   } = useContext(AppStateContext);
   return {
@@ -16,6 +17,7 @@ export default function useActions() {
     setMode,
     setCenters,
     setCenter,
+    setSidebar,
     deleteCenter,
   };
 }

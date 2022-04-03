@@ -10,8 +10,7 @@ function MainData() {
   const center = useCenter();
   const sidebar = useSiderbar();
   const { deleteCenter, setMode } = useActions();
-
-  const handleDelelte = () => deleteCenter(center.id);
+  const handleDelelte = () => deleteCenter(center.key);
 
   const { key, title, location, courses } = center;
   return (
@@ -21,6 +20,15 @@ function MainData() {
           <div className="center" key={key}>
             <div className="center__title">
               <h2>{title}</h2>
+              <Link to={`form`}>
+                <button
+                  onClick={() => {
+                    setMode("UPDATE");
+                  }}
+                >
+                  센터 수정하기
+                </button>
+              </Link>
               <button onClick={handleDelelte}>센터 삭제하기</button>
               <p className="center__location">위치 : {location}</p>
             </div>

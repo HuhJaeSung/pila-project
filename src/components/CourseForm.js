@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useMode from "../hooks/useMode";
+import "./CourseForm.css";
 
 function Update() {
   return (

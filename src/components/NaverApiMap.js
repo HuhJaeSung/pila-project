@@ -49,16 +49,15 @@ function NaverApiMap() {
           const click = () => {
             addToCenter(pos.key);
           };
+          console.log(pos);
           return (
-            <div key={pos.key}>
-              <Marker
-                key={pos.key}
-                position={
-                  new navermaps.LatLng(pos.position.lat, pos.position.lon)
-                }
-                onClick={click}
-              />
-            </div>
+            <Marker
+              key={pos.key}
+              position={
+                new navermaps.LatLng(pos.position.lat, pos.position.lon)
+              }
+              onClick={click}
+            />
           );
         })}
       </NaverMap>

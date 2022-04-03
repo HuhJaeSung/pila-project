@@ -15,9 +15,9 @@ const AppStateProvider = ({ children }) => {
   }, []);
 
   const deleteCenter = useCallback(
-    (id) => {
+    (key) => {
       setSidebar(toggleSide(sidebar));
-      const nextItems = centers.filter((itme) => itme.id !== id);
+      const nextItems = centers.filter((itme) => itme.key !== key);
       setCenters(nextItems);
     },
     [centers, sidebar]
@@ -45,6 +45,7 @@ const AppStateProvider = ({ children }) => {
         toggleSide,
         setCenters,
         setCenter,
+        setSidebar,
         addToCenter,
         setMode,
       }}
