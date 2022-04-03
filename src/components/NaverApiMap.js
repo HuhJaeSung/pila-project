@@ -49,7 +49,6 @@ function NaverApiMap() {
           const click = () => {
             addToCenter(pos.key);
           };
-          console.log(pos);
           return (
             <Marker
               key={pos.key}

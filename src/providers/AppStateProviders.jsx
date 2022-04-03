@@ -8,7 +8,7 @@ const AppStateProvider = ({ children }) => {
   });
   const [center, setCenter] = useState([]);
   const [sidebar, setSidebar] = useState(false);
-  const [mode, setMode] = useState("CREATE");
+  const [mode, setMode] = useState("WELCOME");
 
   const toggleSide = useCallback((bar) => {
     return !bar;
