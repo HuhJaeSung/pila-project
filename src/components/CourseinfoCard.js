@@ -3,10 +3,6 @@ import React, { useState } from "react";
 import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
-// const showDetail = (course) => {
-//   console.log("Hi!", `${course}`);
-// };
-
 function CourseinfoCard({ course, bar }) {
   console.log(bar, "bar Prop");
   const [coursebar, setCoursebar] = useState(bar);
