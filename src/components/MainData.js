@@ -33,7 +33,7 @@ function MainData() {
                 </button>
               </Link>
               <button onClick={handleDelelte}>센터 삭제하기</button>
-              <div>
+              <div className="close">
                 <button onClick={handleClose}>❌</button>
               </div>
               <p className="center__location">위치 : {location}</p>

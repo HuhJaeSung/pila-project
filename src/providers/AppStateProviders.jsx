@@ -7,7 +7,9 @@ const AppStateProvider = ({ children }) => {
     return centerList;
   });
   const [center, setCenter] = useState([]);
+  const [course, setCourse] = useState([]);
   const [sidebar, setSidebar] = useState(false);
+  const [coursebar, setCoursebar] = useState(false);
   const [mode, setMode] = useState("WELCOME");
 
   const toggleSide = useCallback((bar) => {
@@ -34,13 +36,25 @@ const AppStateProvider = ({ children }) => {
     [center, sidebar, centers]
   );
 
+  const toggleCourse = useCallback(
+    (course) => {
+      if (!coursebar) {
+        setCoursebar(!coursebar);
+      }
+      setCourse(course);
+    },
+    [coursebar]
+  );
+
   return (
     <AppStateContext.Provider
       value={{
         centers,
         center,
+        course,
         sidebar,
         mode,
+        coursebar,
         deleteCenter,
         toggleSide,
         setCenters,
@@ -48,6 +62,7 @@ const AppStateProvider = ({ children }) => {
         setSidebar,
         addToCenter,
         setMode,
+        toggleCourse,
       }}
     >
       {children}

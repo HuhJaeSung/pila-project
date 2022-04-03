@@ -24,8 +24,8 @@
         "price": 20000,
         "phonenumber": "010XXXXXXXX",
         "classtype": ["개인"],
-        "taxfree": true,
-        "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-1234-XXXX"
+        "taxfree": false,
+        "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-1234-5678"
       }
     ]
   },
