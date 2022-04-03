@@ -13,12 +13,12 @@ function MainData() {
 
   const handleDelelte = () => deleteCenter(center.id);
 
-  const { id, title, location, courses } = center;
+  const { key, title, location, courses } = center;
   return (
     <>
       <nav className={sidebar ? "centers active" : "centers"}>
         <div className="container">
-          <div className="center" key={id}>
+          <div className="center" key={key}>
             <div className="center__title">
               <h2>{title}</h2>
               <button onClick={handleDelelte}>센터 삭제하기</button>
@@ -42,7 +42,7 @@ function MainData() {
                   ))}
                 </ul>
               )}
-              <Link to={`form/${center.id}`}>
+              <Link to={`form/${center.key}`}>
                 <button
                   onClick={() => {
                     setMode("CREATE");

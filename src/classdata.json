@@ -1,6 +1,7 @@
 [
   {
-    "id": "pi-1",
+    "id": 1,
+    "key": "pi-1",
     "title": "당근 필라",
     "location": "서울시 도봉구",
     "position": {
@@ -29,7 +30,8 @@
     ]
   },
   {
-    "id": "pi-2",
+    "id": 2,
+    "key": "pi-2",
     "title": "수박 필라",
     "location": "서울시 종로구",
     "position": {
@@ -49,7 +51,8 @@
     ]
   },
   {
-    "id": "pi-3",
+    "id": 3,
+    "key": "pi-3",
     "title": "딸기 필라",
     "location": "서울시 종로구",
     "position": {
@@ -69,7 +72,8 @@
     ]
   },
   {
-    "id": "pi-4",
+    "id": 4,
+    "key": "pi-4",
     "title": "멜론 필라",
     "location": "서울시 종로구",
     "position": {
@@ -89,7 +93,8 @@
     ]
   },
   {
-    "id": "pi-5",
+    "id": 5,
+    "key": "pi-5",
     "title": "유나 필라",
     "location": "함경북도 평양",
     "position": {

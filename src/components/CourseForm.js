@@ -76,7 +76,7 @@ function CourseForm() {
   let content = null;
 
   if (mode === "WELCOME") {
-    content = <Welcome></Welcome>;
+    content = <Welcome />;
   } else if (mode === "CREATE") {
     content = <Create onCreate={(title, body) => {}}></Create>;
   } else if (mode === "UPDATE") {
