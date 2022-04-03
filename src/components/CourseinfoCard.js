@@ -8,9 +8,7 @@ import styles from "./CourseinfoCard.module.css";
 // };
 
 function CourseinfoCard({ course, bar }) {
-  console.log(bar, "bar Prop");
   const [coursebar, setCoursebar] = useState(bar);
-  console.log(coursebar, "bar");
   const handleDetail = () => {
     console.log(coursebar, 1);
     if (!coursebar) {

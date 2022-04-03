@@ -3,37 +3,35 @@ import AppStateContext from "../contexts/AppStateContext";
 import centerList from "../classdata.json";
 
 const AppStateProvider = ({ children }) => {
-  const [centers, setCenters] = useState(centerList);
+  const [centers, setCenters] = useState(() => {
+    return centerList;
+  });
   const [center, setCenter] = useState([]);
   const [sidebar, setSidebar] = useState(false);
-  const [mode, setMode] = useState("WELCOME");
+  const [mode, setMode] = useState("CREATE");
 
-  const toggleSide = useCallback(
-    (bar) => {
-      return !bar;
-    },
-    [sidebar]
-  );
+  const toggleSide = useCallback((bar) => {
+    return !bar;
+  }, []);
 
   const deleteCenter = useCallback(
-    (id) => {
-      setSidebar(false);
-      const nextItems = centers.filter((itme) => itme.id !== id);
+    (key) => {
+      setSidebar(toggleSide(sidebar));
+      const nextItems = centers.filter((itme) => itme.key !== key);
       setCenters(nextItems);
     },
-    [centers]
+    [centers, sidebar]
   );
 
   const addToCenter = useCallback(
-    (id) => {
+    (key) => {
       if (!sidebar) {
-        setSidebar(true);
+        setSidebar(toggleSide(sidebar));
       }
-
-      const find = centers.find((c) => c.id === id);
+      const find = centers.find((c) => c.key === key);
       setCenter(find);
     },
-    [center]
+    [center, sidebar, centers]
   );
 
   return (
@@ -44,10 +42,11 @@ const AppStateProvider = ({ children }) => {
         sidebar,
         mode,
         deleteCenter,
+        toggleSide,
         setCenters,
         setCenter,
+        setSidebar,
         addToCenter,
-        toggleSide,
         setMode,
       }}
     >

@@ -27,7 +27,7 @@ function Navbar() {
                 setMode("CREATE");
               }}
             >
-              <NavLink to="/form">등록하기</NavLink>
+              <NavLink to="/form">센터 등록하기</NavLink>
             </li>
             <li>
               <NavLink to="/Menu2">놀아요</NavLink>
