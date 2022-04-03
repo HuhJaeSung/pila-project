@@ -8,32 +8,28 @@ const AppStateProvider = ({ children }) => {
   const [sidebar, setSidebar] = useState(false);
   const [mode, setMode] = useState("WELCOME");
 
-  const toggleSide = useCallback(
-    (bar) => {
-      return !bar;
-    },
-    [sidebar]
-  );
+  const toggleSide = useCallback((bar) => {
+    return !bar;
+  }, []);
 
   const deleteCenter = useCallback(
     (id) => {
-      setSidebar(false);
+      setSidebar(toggleSide(sidebar));
       const nextItems = centers.filter((itme) => itme.id !== id);
       setCenters(nextItems);
     },
-    [centers]
+    [centers, sidebar]
   );
 
   const addToCenter = useCallback(
     (id) => {
       if (!sidebar) {
-        setSidebar(true);
+        setSidebar(toggleSide(sidebar));
       }
-
       const find = centers.find((c) => c.id === id);
       setCenter(find);
     },
-    [center]
+    [center, sidebar]
   );
 
   return (
@@ -44,10 +40,10 @@ const AppStateProvider = ({ children }) => {
         sidebar,
         mode,
         deleteCenter,
+        toggleSide,
         setCenters,
         setCenter,
         addToCenter,
-        toggleSide,
         setMode,
       }}
     >

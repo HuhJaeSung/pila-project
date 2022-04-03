@@ -13,7 +13,7 @@ function MainData() {
 
   const handleDelelte = () => deleteCenter(center.id);
 
-  const { id, title, location, hours, courses } = center;
+  const { id, title, location, courses } = center;
   return (
     <>
       <nav className={sidebar ? "centers active" : "centers"}>
@@ -22,10 +22,9 @@ function MainData() {
             <div className="center__title">
               <h2>{title}</h2>
               <button onClick={handleDelelte}>센터 삭제하기</button>
+              <p className="center__location">위치 : {location}</p>
             </div>
           </div>
-          <p className="center__location">위치 : {location}</p>
-          <p className="center__hours">영업시간 : {hours}</p>
         </div>
         <div>
           {courses && (
@@ -35,11 +34,13 @@ function MainData() {
                   <h1> 등록된 강좌가 없습니다.</h1>
                 </div>
               ) : (
-                <div className="courses">
+                <ul className="courses">
                   {courses.map((course) => (
-                    <CourseinfoCard key={course.id} course={course} />
+                    <li key={course.id}>
+                      <CourseinfoCard key={course.id} course={course} />
+                    </li>
                   ))}
-                </div>
+                </ul>
               )}
               <Link to={`form/${center.id}`}>
                 <button

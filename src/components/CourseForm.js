@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useActions from "../hooks/useActions";
 import useMode from "../hooks/useMode";
 
 function Update() {
