@@ -8,7 +8,7 @@ import "./MainData.css";
 
 function MainData() {
   const center = useCenter();
-  const sidebar = useSiderbar();
+  const { sidebar } = useSiderbar();
   const { deleteCenter, setMode } = useActions();
   const handleDelelte = () => deleteCenter(center.key);
 

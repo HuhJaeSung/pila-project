@@ -3,36 +3,42 @@ import useCenter from "../hooks/useCenter";
 import styles from "./CourseDatail.module.css";
 import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
+import useCourse from "../hooks/useCourse";
 
-function CourseDetail({ info }) {
+function CourseDetail({ coursebar }) {
   const center = useCenter();
+  const course = useCourse();
   const { setMode } = useActions();
 
   return (
     <>
-      <div className={styles.card}>
+      <div className={coursebar ? styles.card : styles.baroff}>
         <ul>
           <li>
-            {info && (
+            {coursebar && (
               <>
-                <p>id: {info.id}</p>
-                <p>date: {info.date}</p>
-                <p>price: {info.price}</p>
-                <p>phonenumber: {info.phonenumber}</p>
-                <p>taxfree: {info.taxfree}</p>
+                <p>id: {course.id}</p>
+                <p>date: {course.date}</p>
+                <p>price: {course.price}</p>
+                <p>phonenumber: {course.phonenumber}</p>
+                <p>classtype: {course.classtype}</p>
+                <p>taxfree: {course.taxfree ? "Tax Free" : "Tax 별도"}</p>
+                <p>desc: {course.desc}</p>
               </>
             )}
           </li>
+          <li>
+            <Link to={`form/${center.id}`}>
+              <button
+                onClick={() => {
+                  setMode("UPDATE");
+                }}
+              >
+                강좌 수정하기
+              </button>
+            </Link>
+          </li>
         </ul>
-        <Link to={`form/${center.id}`}>
-          <button
-            onClick={() => {
-              setMode("UPDATE");
-            }}
-          >
-            강좌 수정하기
-          </button>
-        </Link>
       </div>
     </>
   );

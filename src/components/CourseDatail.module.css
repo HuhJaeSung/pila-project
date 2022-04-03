@@ -8,10 +8,10 @@
   align-items: center;
   position: fixed;
   z-index: 3;
-  opacity: 0.3;
+  transition: 0.9s;
 }
 
-/* .baroff {
+.baroff {
   top: 0px;
   left: -100%;
   width: 300px;
@@ -21,7 +21,8 @@
   align-items: center;
   position: fixed;
   z-index: 3;
-} */
+  transition: 0.9s;
+}
 
 .card li {
   list-style: none;

@@ -10,6 +10,7 @@ export default function useActions() {
     setCenter,
     setSidebar,
     deleteCenter,
+    toggleCourse
   } = useContext(AppStateContext);
   return {
     addToCenter,
@@ -19,5 +20,6 @@ export default function useActions() {
     setCenter,
     setSidebar,
     deleteCenter,
+    toggleCourse
   };
 }
