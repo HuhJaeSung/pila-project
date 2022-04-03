@@ -14,7 +14,7 @@ const AppStateProvider = ({ children }) => {
     (bar) => {
       return !bar;
     },
-    [sidebar, coursebar]
+    []
   );
 
   const deleteCenter = useCallback(
@@ -23,7 +23,7 @@ const AppStateProvider = ({ children }) => {
       const nextItems = centers.filter((itme) => itme.id !== id);
       setCenters(nextItems);
     },
-    [centers, sidebar]
+    [centers]
   );
 
   const addToCenter = useCallback(
@@ -35,7 +35,7 @@ const AppStateProvider = ({ children }) => {
       const find = centers.find((c) => c.id === id);
       setCenter(find);
     },
-    [center, sidebar]
+    [centers, sidebar]
   );
 
   const toggleCourse = useCallback(
@@ -45,7 +45,7 @@ const AppStateProvider = ({ children }) => {
       }
       setCourse(course);
     },
-    [course, coursebar]
+    [coursebar]
   )
 
   return (

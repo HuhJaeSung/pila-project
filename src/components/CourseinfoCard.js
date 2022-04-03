@@ -1,12 +1,9 @@
-import { render } from "@testing-library/react";
-import React, { useState } from "react";
 import useActions from "../hooks/useActions";
-import useCourse from "../hooks/useCourse";
 import useSiderbar from "../hooks/useSiderbar";
 import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
-function CourseinfoCard({ index, course }) {
+function CourseinfoCard({ course }) {
   const { toggleCourse } = useActions();
   const { coursebar } = useSiderbar();
   const handleCourseBar = (course) => {
@@ -35,7 +32,7 @@ function CourseinfoCard({ index, course }) {
           </div>
         )}
       </div>
-      {coursebar && <CourseDetail info={course} coursebar={coursebar} />}
+      {coursebar && <CourseDetail coursebar={coursebar} />}
     </>
   );
 }

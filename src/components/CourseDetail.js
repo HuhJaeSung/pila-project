@@ -3,7 +3,6 @@ import useCenter from "../hooks/useCenter";
 import styles from "./CourseDatail.module.css";
 import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
-import useSiderbar from "../hooks/useSiderbar";
 import useCourse from "../hooks/useCourse";
 
 function CourseDetail({ coursebar }) {
@@ -23,7 +22,7 @@ function CourseDetail({ coursebar }) {
                 <p>price: {course.price}</p>
                 <p>phonenumber: {course.phonenumber}</p>
                 <p>classtype: {course.classtype}</p>
-                <p>taxfree: {course.taxfree}</p>
+                <p>taxfree: {course.taxfree ? "Tax Free" : "Tax 별도"}</p>
                 <p>desc: {course.desc}</p>
               </>
             )}

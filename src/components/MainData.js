@@ -37,7 +37,7 @@ function MainData() {
               ) : (
                 <div className="courses">
                   {courses.map((course) => (
-                    <CourseinfoCard key={course.id} course={course} index={course.id} />
+                    <CourseinfoCard key={course.id} course={course} />
                   ))}
                 </div>
               )}

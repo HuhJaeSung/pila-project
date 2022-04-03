@@ -8,6 +8,7 @@
   align-items: center;
   position: fixed;
   z-index: 3;
+  transition: 0.9s;
 }
 
 .baroff {
@@ -20,6 +21,7 @@
   align-items: center;
   position: fixed;
   z-index: 3;
+  transition: 0.9s;
 }
 
 .card li {
