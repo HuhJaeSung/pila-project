@@ -4,13 +4,12 @@ import styles from "./CourseDatail.module.css";
 import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useSiderbar from "../hooks/useSiderbar";
+import useCourse from "../hooks/useCourse";
 
-function CourseDetail({ info, coursebar }) {
+function CourseDetail({ coursebar }) {
   const center = useCenter();
+  const course = useCourse();
   const { setMode } = useActions();
-  // const { coursebar } = useSiderbar();
-  // console.log("Bar State", coursebar)
-  console.log(info, "info")
 
   return (
     <>
@@ -19,11 +18,13 @@ function CourseDetail({ info, coursebar }) {
           <li>
             {coursebar && (
               <>
-                <p>id: {info.id}</p>
-                <p>date: {info.date}</p>
-                <p>price: {info.price}</p>
-                <p>phonenumber: {info.phonenumber}</p>
-                <p>taxfree: {info.taxfree}</p>
+                <p>id: {course.id}</p>
+                <p>date: {course.date}</p>
+                <p>price: {course.price}</p>
+                <p>phonenumber: {course.phonenumber}</p>
+                <p>classtype: {course.classtype}</p>
+                <p>taxfree: {course.taxfree}</p>
+                <p>desc: {course.desc}</p>
               </>
             )}
           </li>

@@ -10,10 +10,6 @@ function NaverApiMap() {
   const centers = useCenters();
   const { addToCenter } = useActions();
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
-  // const [pilaPosi, setPilaPosi] = useState([]);
-  // const [posIndex, setPosIndex] = useState();
-
-  // const function handleIndex()
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -27,7 +23,6 @@ function NaverApiMap() {
       window.alert("현재위치 Error");
     }
   }, []);
-  console.log(myPosi);
   return (
     <>
       <NaverMap

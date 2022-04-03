@@ -5,6 +5,7 @@ import centerList from "../classdata.json";
 const AppStateProvider = ({ children }) => {
   const [centers, setCenters] = useState(centerList);
   const [center, setCenter] = useState([]);
+  const [course, setCourse] = useState([]);
   const [sidebar, setSidebar] = useState(false);
   const [coursebar, setCoursebar] = useState(false);
   const [mode, setMode] = useState("WELCOME");
@@ -38,9 +39,13 @@ const AppStateProvider = ({ children }) => {
   );
 
   const toggleCourse = useCallback(
-    () => {
-      setCoursebar(!coursebar);
-    }
+    (course) => {
+      if (!coursebar) {
+        setCoursebar(!coursebar);
+      }
+      setCourse(course);
+    },
+    [course, coursebar]
   )
 
   return (
@@ -48,6 +53,7 @@ const AppStateProvider = ({ children }) => {
       value={{
         centers,
         center,
+        course,
         sidebar,
         mode,
         coursebar,

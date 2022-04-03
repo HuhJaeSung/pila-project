@@ -1,17 +1,16 @@
 import { render } from "@testing-library/react";
 import React, { useState } from "react";
 import useActions from "../hooks/useActions";
+import useCourse from "../hooks/useCourse";
 import useSiderbar from "../hooks/useSiderbar";
 import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
-function CourseinfoCard({ course }) {
+function CourseinfoCard({ index, course }) {
   const { toggleCourse } = useActions();
   const { coursebar } = useSiderbar();
-  const handleCourseBar = () => {
-    console.log("Course On/Off", coursebar, "course", course.id);
-    toggleCourse();
-    <CourseDetail info={course} />
+  const handleCourseBar = (course) => {
+    toggleCourse(course);
   }
 
   return (
@@ -21,9 +20,8 @@ function CourseinfoCard({ course }) {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div className={styles.container} onClick={(course) => {
-              // console.log("Course On/Off", coursebar, "course", course.id);
-              toggleCourse();
+            <div className={styles.container} onClick={() => {
+              handleCourseBar(course);
             }}
             >
               <div className="course" key={course.id}>

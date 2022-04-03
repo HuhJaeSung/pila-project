@@ -12,10 +12,6 @@ function MainData() {
   const { deleteCenter, setMode } = useActions();
 
   const handleDelelte = () => deleteCenter(center.id);
-  // const handleCourseBar = () => {
-  //   console.log("Course On/Off", coursebar);
-  //   toggleCourse();
-  // }
 
   const { id, title, location, hours, courses } = center;
   return (
@@ -41,7 +37,7 @@ function MainData() {
               ) : (
                 <div className="courses">
                   {courses.map((course) => (
-                    <CourseinfoCard key={course.id} course={course} />
+                    <CourseinfoCard key={course.id} course={course} index={course.id} />
                   ))}
                 </div>
               )}
