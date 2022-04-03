@@ -8,7 +8,7 @@ function CourseinfoCard({ course }) {
   const { coursebar } = useSiderbar();
   const handleCourseBar = (course) => {
     toggleCourse(course);
-  }
+  };
 
   return (
     <>
@@ -17,9 +17,11 @@ function CourseinfoCard({ course }) {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div className={styles.container} onClick={() => {
-              handleCourseBar(course);
-            }}
+            <div
+              className={styles.container}
+              onClick={() => {
+                handleCourseBar(course);
+              }}
             >
               <div className="course" key={course.id}>
                 <div className="course__title">

@@ -3,7 +3,6 @@ import { NaverMap, Marker } from "react-naver-maps";
 import useCenters from "../hooks/useCenters";
 import useActions from "../hooks/useActions";
 import "./NaverApiMap.css";
-import { Link } from "react-router-dom";
 
 function NaverApiMap() {
   const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
@@ -48,18 +47,17 @@ function NaverApiMap() {
         />
         {centers.map((pos) => {
           const click = () => {
-            addToCenter(pos.id);
+            addToCenter(pos.key);
           };
+          console.log(pos);
           return (
-            <div key={pos.id}>
-              <Marker
-                key={pos.id}
-                position={
-                  new navermaps.LatLng(pos.position.lat, pos.position.lon)
-                }
-                onClick={click}
-              />
-            </div>
+            <Marker
+              key={pos.key}
+              position={
+                new navermaps.LatLng(pos.position.lat, pos.position.lon)
+              }
+              onClick={click}
+            />
           );
         })}
       </NaverMap>

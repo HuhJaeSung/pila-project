@@ -3,39 +3,37 @@ import AppStateContext from "../contexts/AppStateContext";
 import centerList from "../classdata.json";
 
 const AppStateProvider = ({ children }) => {
-  const [centers, setCenters] = useState(centerList);
+  const [centers, setCenters] = useState(() => {
+    return centerList;
+  });
   const [center, setCenter] = useState([]);
   const [course, setCourse] = useState([]);
   const [sidebar, setSidebar] = useState(false);
   const [coursebar, setCoursebar] = useState(false);
   const [mode, setMode] = useState("WELCOME");
 
-  const toggleSide = useCallback(
-    (bar) => {
-      return !bar;
-    },
-    []
-  );
+  const toggleSide = useCallback((bar) => {
+    return !bar;
+  }, []);
 
   const deleteCenter = useCallback(
-    (id) => {
-      setSidebar(false);
-      const nextItems = centers.filter((itme) => itme.id !== id);
+    (key) => {
+      setSidebar(toggleSide(sidebar));
+      const nextItems = centers.filter((itme) => itme.key !== key);
       setCenters(nextItems);
     },
-    [centers]
+    [centers, sidebar]
   );
 
   const addToCenter = useCallback(
-    (id) => {
+    (key) => {
       if (!sidebar) {
-        setSidebar(true);
+        setSidebar(toggleSide(sidebar));
       }
-
-      const find = centers.find((c) => c.id === id);
+      const find = centers.find((c) => c.key === key);
       setCenter(find);
     },
-    [centers, sidebar]
+    [center, sidebar, centers]
   );
 
   const toggleCourse = useCallback(
@@ -46,7 +44,7 @@ const AppStateProvider = ({ children }) => {
       setCourse(course);
     },
     [coursebar]
-  )
+  );
 
   return (
     <AppStateContext.Provider
@@ -58,10 +56,11 @@ const AppStateProvider = ({ children }) => {
         mode,
         coursebar,
         deleteCenter,
+        toggleSide,
         setCenters,
         setCenter,
+        setSidebar,
         addToCenter,
-        toggleSide,
         setMode,
         toggleCourse,
       }}
