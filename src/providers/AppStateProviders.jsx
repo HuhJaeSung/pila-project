@@ -22,7 +22,7 @@ const AppStateProvider = ({ children }) => {
       const nextItems = centers.filter((itme) => itme.id !== id);
       setCenters(nextItems);
     },
-    [centers]
+    [centers, sidebar]
   );
 
   const addToCenter = useCallback(
@@ -34,13 +34,12 @@ const AppStateProvider = ({ children }) => {
       const find = centers.find((c) => c.id === id);
       setCenter(find);
     },
-    [center]
+    [center, sidebar]
   );
 
   const toggleCourse = useCallback(
     () => {
       setCoursebar(!coursebar);
-      console.log("Coursebar", coursebar);
     }
   )
 

@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useSiderbar from "../hooks/useSiderbar";
 
-function CourseDetail({ info }) {
+function CourseDetail({ info, coursebar }) {
   const center = useCenter();
   const { setMode } = useActions();
-  const { coursebar } = useSiderbar();
-  console.log("coursebar", coursebar)
+  // const { coursebar } = useSiderbar();
+  // console.log("Bar State", coursebar)
   console.log(info, "info")
 
   return (

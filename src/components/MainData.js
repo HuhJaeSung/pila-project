@@ -9,9 +9,13 @@ import "./MainData.css";
 function MainData() {
   const center = useCenter();
   const { sidebar } = useSiderbar();
-  const { deleteCenter, setMode, toggleCourse } = useActions();
+  const { deleteCenter, setMode } = useActions();
 
   const handleDelelte = () => deleteCenter(center.id);
+  // const handleCourseBar = () => {
+  //   console.log("Course On/Off", coursebar);
+  //   toggleCourse();
+  // }
 
   const { id, title, location, hours, courses } = center;
   return (
@@ -35,13 +39,9 @@ function MainData() {
                   <h1> 등록된 강좌가 없습니다.</h1>
                 </div>
               ) : (
-                <div className="courses" onClick={()=> {
-                  console.log("hi")
-                }}>
+                <div className="courses">
                   {courses.map((course) => (
-                    <div onClick={toggleCourse}>
-                      <CourseinfoCard key={course.id} course={course} />
-                    </div>
+                    <CourseinfoCard key={course.id} course={course} />
                   ))}
                 </div>
               )}
