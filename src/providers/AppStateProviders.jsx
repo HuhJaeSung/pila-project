@@ -37,11 +37,19 @@ const AppStateProvider = ({ children }) => {
   );
 
   const toggleCourse = useCallback(
-    (course) => {
-      if (!coursebar) {
-        setCoursebar(!coursebar);
+    (nextCourse) => {
+      if (coursebar === false) {
+        setCoursebar(true);
+        console.log(course, coursebar, "if내부");
+      } else if (coursebar === true) {
+        if (course === nextCourse) {
+          setCoursebar(false);
+          console.log(course, coursebar, "else, if 내부");
+        }
+        console.log(course, coursebar, "else, if 외부");
       }
-      setCourse(course);
+      setCourse(nextCourse);
+      console.log(course, coursebar, "외부");
     },
     [coursebar]
   );

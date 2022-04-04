@@ -8,28 +8,26 @@ import useCourse from "../hooks/useCourse";
 function CourseDetail({ coursebar }) {
   const center = useCenter();
   const course = useCourse();
-  const { setMode } = useActions();
+  const { setMode, toggleCourse } = useActions();
+  const handleCourseBar = (course) => {
+    toggleCourse(course);
+  };
 
   return (
     <>
-      <div className={coursebar ? styles.card : styles.baroff}>
-        <ul>
-          <li>
-            {coursebar && (
-              <>
-                <p>id: {course.id}</p>
-                <p>date: {course.date}</p>
-                <p>price: {course.price}</p>
-                <p>phonenumber: {course.phonenumber}</p>
-                <p>classtype: {course.classtype}</p>
-                <p>taxfree: {course.taxfree ? "Tax Free" : "Tax 별도"}</p>
-                <p>desc: {course.desc}</p>
-              </>
-            )}
-          </li>
-          <li>
+      <div className={coursebar ? styles.bar : styles.baroff}>
+        <div className={styles.container}>
+          <p>id: {course.id}</p>
+          <p>date: {course.date}</p>
+          <p>price: {course.price}</p>
+          <p>phonenumber: {course.phonenumber}</p>
+          <p>classtype: {course.classtype}</p>
+          <p>taxfree: {course.taxfree ? "Tax Free" : "Tax 별도"}</p>
+          <p>desc: {course.desc}</p>
+          <p>
             <Link to={`form/${center.id}`}>
               <button
+                className={styles.UpdateButton}
                 onClick={() => {
                   setMode("UPDATE");
                 }}
@@ -37,8 +35,17 @@ function CourseDetail({ coursebar }) {
                 강좌 수정하기
               </button>
             </Link>
-          </li>
-        </ul>
+          </p>
+        </div>
+        <button
+          className={styles.CloseButton}
+          onClick={() => {
+            handleCourseBar(course);
+            console.log("Hi");
+          }}
+        >
+          닫기
+        </button>
       </div>
     </>
   );

@@ -1,4 +1,15 @@
-.card {
+.container {
+  /* display: flex; */
+  margin: 10px;
+  height: 300px;
+}
+
+.container p {
+  margin: 5px;
+  background-color: white;
+}
+
+.bar {
   top: 0px;
   left: 375px;
   width: 300px;
@@ -9,19 +20,24 @@
   position: fixed;
   z-index: 3;
   transition: 0.9s;
+  list-style: none;
 }
 
 .baroff {
   top: 0px;
-  left: -100%;
+  left: 400px;
   width: 300px;
-  height: 100vh;
-  background-color: lemonchiffon;
+  height: 100%;
+  background-color: green;
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 3;
+  z-index: 10;
   transition: 0.9s;
+}
+
+.UpdateButton {
+  background-color: gray;
 }
 
 .card li {
@@ -30,4 +46,12 @@
 
 .card p {
   padding: 5px;
+}
+
+.CloseButton {
+  height: 100px;
+  width: 30px;
+  position: relative;
+  top: 50px;
+  left: 100%;
 }
