@@ -8,11 +8,12 @@ import "./MainData.css";
 
 function MainData() {
   const center = useCenter();
-  const sidebar = useSiderbar();
-  const { deleteCenter, setMode, setSidebar } = useActions();
+  const { sidebar } = useSiderbar();
+  const { deleteCenter, setMode, setSidebar, setCoursebar } = useActions();
   const handleDelelte = () => deleteCenter(center.key);
   const handleClose = () => {
     setSidebar(false);
+    setCoursebar(false);
   };
 
   const { key, title, location, courses } = center;

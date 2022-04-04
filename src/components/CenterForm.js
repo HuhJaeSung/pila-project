@@ -16,7 +16,7 @@ const INITIAL_VALUES = {
 function Create() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState(null);
-  const sidebar = useSiderbar();
+  const { sidebar } = useSiderbar();
   const centers = useCenters();
   const { setCenters, setCenter, setSidebar } = useActions();
   const [nextId, setNextId] = useState(centers[centers.length - 1].id + 1);
