@@ -7,21 +7,21 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 3;
-  transition: 0.9s;
+  z-index: -3;
+  transition: 850ms;
 }
 
 .baroff {
   top: 0px;
   left: -100%;
   width: 300px;
-  height: 100vh;
+  height: 100%;
   background-color: lemonchiffon;
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 3;
-  transition: 0.9s;
+  z-index: -3;
+  transition: 850ms;
 }
 
 .card li {

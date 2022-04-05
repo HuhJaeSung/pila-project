@@ -61,6 +61,8 @@ const AppStateProvider = ({ children }) => {
         setCenter,
         setSidebar,
         addToCenter,
+        setCoursebar,
+        setCourse,
         setMode,
         toggleCourse,
       }}
