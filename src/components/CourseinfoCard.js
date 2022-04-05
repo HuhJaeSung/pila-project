@@ -34,7 +34,7 @@ function CourseinfoCard({ course }) {
           </div>
         )}
       </div>
-      {coursebar && <CourseDetail coursebar={coursebar} />}
+      <CourseDetail coursebar={coursebar} />
     </>
   );
 }
