@@ -14,6 +14,16 @@ function CourseDetail() {
   const handleClose = () => {
     setCoursebar(false);
   };
+
+  // const handleDelelte = useCallback(
+  //   (key) => {
+  //     setCoursebar(false);
+  //     const nextItems = center.courses.filter((item) => item.key !== key);
+  //     center.courses = nextItems;
+  //   },
+  //   [center.courses, coursebar]
+  // );
+
   return (
     <>
       <nav className={coursebar ? styles.card : styles.baroff}>
@@ -44,6 +54,9 @@ function CourseDetail() {
                 >
                   강좌 수정하기
                 </button>
+                {/* <button onClick={handleDelelte(course.key)}>
+                  센터 삭제하기
+                </button> */}
               </Link>
             </li>
           </ul>

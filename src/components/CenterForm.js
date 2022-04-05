@@ -23,6 +23,11 @@ function Create() {
   const [values, setValues] = useState(INITIAL_VALUES);
   const { setMode } = useActions();
 
+  const onCancel = () => {
+    setMode("WELCOME");
+    return;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prevValues) => ({
@@ -79,6 +84,7 @@ function Create() {
       <button type="submit" disabled={isSubmitting}>
         등록하기
       </button>
+      {onCancel && <button onClick={onCancel}>취소</button>}
       {submittingError?.message && <div>{submittingError.message}</div>}
     </form>
   );
