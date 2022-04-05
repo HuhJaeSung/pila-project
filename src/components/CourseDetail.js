@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useCenter from "../hooks/useCenter";
 import styles from "./CourseDatail.module.css";
 import { Link } from "react-router-dom";
@@ -9,8 +9,13 @@ function CourseDetail({ coursebar }) {
   const center = useCenter();
   const course = useCourse();
   const { setMode, toggleCourse } = useActions();
+  const [hey, setHey] = useState(false);
   const handleCourseBar = (course) => {
     toggleCourse(course);
+    console.log(coursebar, "CourseBar");
+    console.log(hey, "what1");
+    setHey(true);
+    console.log(hey, "what2");
   };
 
   return (
@@ -37,15 +42,17 @@ function CourseDetail({ coursebar }) {
             </Link>
           </p>
         </div>
-        <button
-          className={styles.CloseButton}
-          onClick={() => {
-            handleCourseBar(course);
-            console.log("Hi");
-          }}
-        >
-          닫기
-        </button>
+        <div className={styles.buttonContainer}>
+          <button
+            className={styles.CloseButton}
+            onClick={() => {
+              handleCourseBar(course);
+              console.log("Hi");
+            }}
+          >
+            닫기
+          </button>
+        </div>
       </div>
     </>
   );
