@@ -8,6 +8,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow);
+  z-index: 3;
 }
 
 ul.menu {
@@ -30,6 +31,7 @@ ul.menu > li:not(:last-child) {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
+  z-index: 6;
 }
 
 .nav-menu {
@@ -47,6 +49,7 @@ ul.menu > li:not(:last-child) {
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  z-index: 6;
 }
 
 .nav-text {
