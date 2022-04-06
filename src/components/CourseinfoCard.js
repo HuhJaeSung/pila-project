@@ -1,11 +1,8 @@
 import useActions from "../hooks/useActions";
-import useSiderbar from "../hooks/useSiderbar";
-import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
 function CourseinfoCard({ course }) {
   const { toggleCourse } = useActions();
-  const { coursebar } = useSiderbar();
   const handleCourseBar = (course) => {
     toggleCourse(course);
   };
@@ -34,7 +31,6 @@ function CourseinfoCard({ course }) {
           </div>
         )}
       </div>
-      <CourseDetail coursebar={coursebar} />
     </>
   );
 }

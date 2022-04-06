@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCenter from "../hooks/useCenter";
 import useSiderbar from "../hooks/useSiderbar";
+import CourseDetail from "./CourseDetail";
 import CourseinfoCard from "./CourseinfoCard";
 import "./MainData.css";
 
@@ -74,6 +75,7 @@ function MainData() {
           )}
         </div>
       </nav>
+      <CourseDetail />
     </>
   );
 }
