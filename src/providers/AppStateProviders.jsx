@@ -30,6 +30,7 @@ const AppStateProvider = ({ children }) => {
       if (!sidebar) {
         setSidebar(toggleSide(sidebar));
       }
+      setCoursebar(false);
       const find = centers.find((c) => c.key === key);
       setCenter(find);
     },

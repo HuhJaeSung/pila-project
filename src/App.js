@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import NaverApiMap from "./components/NaverApiMap";
 import "./App.css";
 import MainData from "./components/MainData";
+import CourseDetail from "./components/CourseDetail";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <div className="details">
         <NaverApiMap className="Map" />
         <MainData />
+        <CourseDetail />
       </div>
       <Footer className="footer" />
     </div>
