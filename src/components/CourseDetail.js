@@ -4,30 +4,33 @@ import styles from "./CourseDatail.module.css";
 import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCourse from "../hooks/useCourse";
+import useSiderbar from "../hooks/useSiderbar";
 
-function CourseDetail({ coursebar }) {
+function CourseDetail() {
   const center = useCenter();
   const course = useCourse();
-  const { setMode, toggleCourse } = useActions();
-  const [hey, setHey] = useState(false);
+  const {coursebar} = useSiderbar();
+  const { setMode, toggleCourse, setCoursebar } = useActions();
   const handleCourseBar = (course) => {
     toggleCourse(course);
-    console.log(coursebar, "CourseBar");
-    console.log(hey, "what1");
-    setHey(true);
-    console.log(hey, "what2");
   };
+  const handleClose = () => {
+    setCoursebar(false);
+  }
 
   return (
     <>
       <div className={coursebar ? styles.bar : styles.baroff}>
         <div className={styles.container}>
+          <div className="close">
+            <button onClick={handleClose}>❌</button>
+          </div>
           <p>id: {course.id}</p>
           <p>date: {course.date}</p>
           <p>price: {course.price}</p>
           <p>phonenumber: {course.phonenumber}</p>
           <p>classtype: {course.classtype}</p>
-          <p>taxfree: {course.taxfree ? "Tax Free" : "Tax 별도"}</p>
+          <p>taxfree: {course.taxfree}</p>
           <p>desc: {course.desc}</p>
           <p>
             <Link to={`form/${center.id}`}>

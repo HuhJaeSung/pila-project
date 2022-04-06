@@ -16,12 +16,17 @@ const INITIAL_VALUES = {
 function Create() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState(null);
-  const sidebar = useSiderbar();
+  const { sidebar } = useSiderbar();
   const centers = useCenters();
   const { setCenters, setCenter, setSidebar } = useActions();
   const [nextId, setNextId] = useState(centers[centers.length - 1].id + 1);
   const [values, setValues] = useState(INITIAL_VALUES);
   const { setMode } = useActions();
+
+  const onCancel = () => {
+    setMode("WELCOME");
+    return;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,6 +84,7 @@ function Create() {
       <button type="submit" disabled={isSubmitting}>
         등록하기
       </button>
+      {onCancel && <button onClick={onCancel}>취소</button>}
       {submittingError?.message && <div>{submittingError.message}</div>}
     </form>
   );

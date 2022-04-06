@@ -40,16 +40,12 @@ const AppStateProvider = ({ children }) => {
     (nextCourse) => {
       if (coursebar === false) {
         setCoursebar(true);
-        console.log(course, coursebar, "if내부");
       } else if (coursebar === true) {
         if (course === nextCourse) {
           setCoursebar(false);
-          console.log(course, coursebar, "else, if 내부");
         }
-        console.log(course, coursebar, "else, if 외부");
       }
       setCourse(nextCourse);
-      console.log(course, coursebar, "외부");
     },
     [coursebar]
   );
@@ -69,6 +65,8 @@ const AppStateProvider = ({ children }) => {
         setCenter,
         setSidebar,
         addToCenter,
+        setCoursebar,
+        setCourse,
         setMode,
         toggleCourse,
       }}

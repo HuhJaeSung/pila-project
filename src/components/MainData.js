@@ -8,9 +8,17 @@ import "./MainData.css";
 
 function MainData() {
   const center = useCenter();
-  const { sidebar } = useSiderbar();
-  const { deleteCenter, setMode } = useActions();
-  const handleDelelte = () => deleteCenter(center.key);
+  const { sidebar, coursebar } = useSiderbar();
+  const { deleteCenter, setMode, setSidebar, setCoursebar } = useActions();
+  const handleDelelte = () => {
+    deleteCenter(center.key);
+    setCoursebar(false);
+  }
+  const handleClose = () => {
+    setSidebar(false);
+    setCoursebar(false);
+    console.log(coursebar);
+  };
 
   const { key, title, location, courses } = center;
   return (
@@ -30,6 +38,9 @@ function MainData() {
                 </button>
               </Link>
               <button onClick={handleDelelte}>센터 삭제하기</button>
+              <div className="close">
+                <button onClick={handleClose}>❌</button>
+              </div>
               <p className="center__location">위치 : {location}</p>
             </div>
           </div>

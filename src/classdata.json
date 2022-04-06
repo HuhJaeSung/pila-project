@@ -10,21 +10,23 @@
     },
     "courses": [
       {
-        "id": "cl-1",
+        "id": 1,
+        "key": "cl-1",
         "date": "2022-02-22",
         "price": 30000,
         "phonenumber": "010XXXXXXXX",
-        "classtype": ["그룹"],
-        "taxfree": true,
+        "classtype": "그룹",
+        "taxfree": "O",
         "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX"
       },
       {
-        "id": "cl-2",
+        "id": 2,
+        "key": "cl-2",
         "date": "2022-03-23",
         "price": 20000,
         "phonenumber": "010XXXXXXXX",
-        "classtype": ["개인"],
-        "taxfree": false,
+        "classtype": "개인",
+        "taxfree": "X",
         "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-1234-5678"
       }
     ]
@@ -40,12 +42,13 @@
     },
     "courses": [
       {
-        "id": "cl-1",
+        "id": 1,
+        "key": "cl-1",
         "date": "2022-02-22",
         "price": 30000,
         "phonenumber": "010XXXXXXXX",
-        "classtype": ["그룹"],
-        "taxfree": true,
+        "classtype": "그룹",
+        "taxfree": "O",
         "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX"
       }
     ]
@@ -61,12 +64,13 @@
     },
     "courses": [
       {
-        "id": "cl-1",
+        "id": 1,
+        "key": "cl-1",
         "date": "2022-02-22",
         "price": 15000,
         "phonenumber": "010XXXXXXXX",
-        "classtype": ["그룹"],
-        "taxfree": true,
+        "classtype": "혼합",
+        "taxfree": "O",
         "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX"
       }
     ]
@@ -82,12 +86,13 @@
     },
     "courses": [
       {
-        "id": "cl-1",
+        "id": 1,
+        "key": "cl-1",
         "date": "2022-02-22",
         "price": 20000,
         "phonenumber": "010XXXXXXXX",
-        "classtype": ["그룹"],
-        "taxfree": true,
+        "classtype": "그룹",
+        "taxfree": "X",
         "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX"
       }
     ]
