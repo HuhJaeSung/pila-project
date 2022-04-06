@@ -1,4 +1,14 @@
-.card {
+.container {
+  margin: 10px;
+  height: 300px;
+}
+
+.container p {
+  margin: 5px;
+  background-color: white;
+}
+
+.bar {
   top: 0px;
   left: 375px;
   width: 300px;
@@ -7,21 +17,23 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: -3;
-  transition: 850ms;
+  transition: 300ms;
 }
 
 .baroff {
   top: 0px;
-  left: -100%;
+  left: -375px;
   width: 300px;
   height: 100%;
   background-color: lemonchiffon;
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: -3;
-  transition: 850ms;
+  transition: 300ms;
+}
+
+.UpdateButton {
+  background-color: gray;
 }
 
 .card li {
@@ -30,4 +42,22 @@
 
 .card p {
   padding: 5px;
+}
+
+.buttonContainer {
+  top: 50px;
+  position: relative;
+  left: 300px;
+  height: 110px;
+  width: 35px;
+  background-color: lemonchiffon;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.CloseButton {
+  height: 100px;
+  width: 30px;
+  position: relative;
+  top: 5px;
+  left: 0;
 }

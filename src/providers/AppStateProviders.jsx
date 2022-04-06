@@ -37,11 +37,15 @@ const AppStateProvider = ({ children }) => {
   );
 
   const toggleCourse = useCallback(
-    (course) => {
-      if (!coursebar) {
-        setCoursebar(!coursebar);
+    (nextCourse) => {
+      if (coursebar === false) {
+        setCoursebar(true);
+      } else if (coursebar === true) {
+        if (course === nextCourse) {
+          setCoursebar(false);
+        }
       }
-      setCourse(course);
+      setCourse(nextCourse);
     },
     [coursebar]
   );

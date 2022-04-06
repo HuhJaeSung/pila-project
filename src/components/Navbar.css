@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
   box-shadow: var(--box-shadow);
 }
 
@@ -43,13 +42,11 @@ ul.menu > li:not(:last-child) {
   top: 0;
   left: -100%;
   transition: 850ms;
-  z-index: 2;
 }
 
 .nav-menu.active {
   left: 0;
   transition: 350ms;
-  z-index: 8;
 }
 
 .nav-text {
