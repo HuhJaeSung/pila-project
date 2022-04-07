@@ -1,10 +1,8 @@
 import useActions from "../hooks/useActions";
-import useSiderbar from "../hooks/useSiderbar";
 import styles from "./CourseinfoCard.module.css";
 
 function CourseinfoCard({ course }) {
   const { setCoursebar, setCourse } = useActions();
-  const { coursebar } = useSiderbar();
   const handleCourseBar = () => {
     setCoursebar(true);
     setCourse(course);
