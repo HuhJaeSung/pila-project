@@ -7,13 +7,13 @@ import "./CenterForm.css";
 import posData from "../data.json";
 import useSiderbar from "../hooks/useSiderbar";
 import useCenter from "../hooks/useCenter";
-import { geocoding } from "../api/NaverGeocoording";
+import { geocoding } from "../api/naverGeocoording";
 
-const getGeocode = async (address) => {
-  // TODO: check address
-  const coord = await geocoding(address);
-  return coord;
-};
+// const getGeocode = async (address) => {
+//   // TODO: check address
+//   const coord = await geocoding(address);
+//   return coord;
+// };
 
 const INITIAL_VALUES = {
   title: "",
@@ -30,12 +30,15 @@ function Create() {
   const [values, setValues] = useState(INITIAL_VALUES);
   const { setMode } = useActions();
   const [posi, setPosi] = useState([]);
+  const [address, setAdress] = useState("");
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const centerGeocode = await getGeocode(values.location);
+    const centerGeocode = await geocoding(values.location);
     console.log(centerGeocode);
-    setPosi(centerGeocode);
+    let position = { lon: centerGeocode[0], lat: centerGeocode[1] };
+    setPosi(position);
+    setAdress(centerGeocode[2]);
   };
 
   const onCancel = () => {
@@ -57,7 +60,7 @@ function Create() {
       id: nextId,
       key: `pi-${nextId}`,
       title: values.title,
-      location: values.location,
+      location: address,
       position: posi,
       courses: [],
     };

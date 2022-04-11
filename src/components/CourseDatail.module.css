@@ -18,6 +18,7 @@
   align-items: center;
   position: fixed;
   transition: 300ms;
+  z-index: 5;
 }
 
 .baroff {
