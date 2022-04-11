@@ -28,15 +28,15 @@ function NaverApiMap() {
         className="map-style"
         id="maps-examples-marker"
         defaultCenter={
-          typeof myPosi !== "string"
+          myPosi
             ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
             : new navermaps.LatLng(37.3595704, 127.105399)
         }
-        defaultZoom={12}
+        defaultZoom={14}
       >
         <Marker
           position={
-            typeof myPosi !== "string"
+            myPosi
               ? new navermaps.LatLng(myPosi.lat, myPosi.lon)
               : new navermaps.LatLng(37.3595704, 127.105399)
           }

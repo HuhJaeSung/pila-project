@@ -1,13 +1,11 @@
 import useActions from "../hooks/useActions";
-import useSiderbar from "../hooks/useSiderbar";
-import CourseDetail from "./CourseDetail";
 import styles from "./CourseinfoCard.module.css";
 
 function CourseinfoCard({ course }) {
-  const { toggleCourse } = useActions();
-  const { coursebar } = useSiderbar();
-  const handleCourseBar = (course) => {
-    toggleCourse(course);
+  const { setCoursebar, setCourse } = useActions();
+  const handleCourseBar = () => {
+    setCoursebar(true);
+    setCourse(course);
   };
 
   return (
@@ -17,12 +15,7 @@ function CourseinfoCard({ course }) {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div
-              className={styles.container}
-              onClick={() => {
-                handleCourseBar(course);
-              }}
-            >
+            <div className={styles.container} onClick={handleCourseBar}>
               <div className="course" key={course.id}>
                 <div className="course__title">
                   <h2>{course.date}</h2>
@@ -34,7 +27,6 @@ function CourseinfoCard({ course }) {
           </div>
         )}
       </div>
-      <CourseDetail coursebar={coursebar} />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCenter from "../hooks/useCenter";
@@ -113,12 +113,6 @@ function Create() {
           </option>
         ))}
       </select>
-      {/* <div>
-        <input type="checkbox" name="chcek1" value="개인" /> 개인
-        <input type="checkbox" name="chcek2" value="그룹" /> 그룹
-        <input type="checkbox" name="check3" value="도구" /> 도구
-        <input type="checkbox" name="check4" value="혼합" /> 혼합
-      </div> */}
       <label htmlFor="taxfree">세금 감면</label>
       <div>
         <label htmlFor="free">O</label>
@@ -260,12 +254,6 @@ function Update() {
           </option>
         ))}
       </select>
-      {/* <div>
-        <input type="checkbox" name="chcek1" value="개인" /> 개인
-        <input type="checkbox" name="chcek2" value="그룹" /> 그룹
-        <input type="checkbox" name="check3" value="도구" /> 도구
-        <input type="checkbox" name="check4" value="혼합" /> 혼합
-      </div> */}
       <label htmlFor="taxfree">세금 감면</label>
       <div>
         <label htmlFor="free">O</label>
