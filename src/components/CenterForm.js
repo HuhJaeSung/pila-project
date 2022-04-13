@@ -4,16 +4,10 @@ import useActions from "../hooks/useActions";
 import useCenters from "../hooks/useCenters";
 import useMode from "../hooks/useMode";
 import "./CenterForm.css";
-import posData from "../data.json";
 import useSiderbar from "../hooks/useSiderbar";
 import useCenter from "../hooks/useCenter";
 import { geocoding } from "../api/naverGeocoording";
-
-// const getGeocode = async (address) => {
-//   // TODO: check address
-//   const coord = await geocoding(address);
-//   return coord;
-// };
+import { naverSearch } from "../api/naverSearch";
 
 const INITIAL_VALUES = {
   title: "",
@@ -31,10 +25,28 @@ function Create() {
   const { setMode } = useActions();
   const [posi, setPosi] = useState([]);
   const [address, setAdress] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [title, setTitle] = useState("");
+
+  // const handleSearch = async (e) => {
+  //   e.preventDefault();
+  //   const centerGeocode = await geocoding(values.location);
+  //   console.log(centerGeocode);
+  //   let position = { lon: centerGeocode[0], lat: centerGeocode[1] };
+  //   setPosi(position);
+  //   setAdress(centerGeocode[2]);
+  // };
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const centerGeocode = await geocoding(values.location);
+    const result = await naverSearch(values.location);
+    console.log(result);
+    setSearchResult(result);
+  };
+
+  const getGeocode = async (address) => {
+    // TODO: check address
+    const centerGeocode = await geocoding(address);
     console.log(centerGeocode);
     let position = { lon: centerGeocode[0], lat: centerGeocode[1] };
     setPosi(position);
@@ -59,7 +71,7 @@ function Create() {
     const newCenter = {
       id: nextId,
       key: `pi-${nextId}`,
-      title: values.title,
+      title: title,
       location: address,
       position: posi,
       courses: [],
@@ -97,12 +109,27 @@ function Create() {
         <input
           name="location"
           value={values.location}
-          placeholder="경기도 이천시"
+          placeholder="주소를 입력하세요."
           onChange={handleChange}
         />
         <button onClick={handleSearch} type="submit">
           검색
         </button>
+      </div>
+      <div>
+        <ul>
+          {searchResult.map((pos) => {
+            const click = () => {
+              getGeocode(pos.address);
+              setTitle(pos.title);
+            };
+            return (
+              <li key={pos.address} onClick={click}>
+                {pos.title}
+              </li>
+            );
+          })}
+        </ul>
       </div>
       <button type="submit" disabled={isSubmitting}>
         등록하기
