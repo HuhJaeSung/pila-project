@@ -7,6 +7,13 @@ import "./CenterForm.css";
 import posData from "../data.json";
 import useSiderbar from "../hooks/useSiderbar";
 import useCenter from "../hooks/useCenter";
+import { geocoding } from "../api/NaverGeocoording.js";
+
+// const getGeocode = async (address) => {
+//   // TODO: check address
+//   const coord = await geocoding(address);
+//   return coord;
+// };
 
 const INITIAL_VALUES = {
   title: "",
@@ -22,6 +29,17 @@ function Create() {
   const [nextId, setNextId] = useState(centers[centers.length - 1].id + 1);
   const [values, setValues] = useState(INITIAL_VALUES);
   const { setMode } = useActions();
+  const [posi, setPosi] = useState([]);
+  const [address, setAdress] = useState("");
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    const centerGeocode = await geocoding(values.location);
+    console.log(centerGeocode);
+    let position = { lon: centerGeocode[0], lat: centerGeocode[1] };
+    setPosi(position);
+    setAdress(centerGeocode[2]);
+  };
 
   const onCancel = () => {
     setMode("WELCOME");
@@ -42,8 +60,8 @@ function Create() {
       id: nextId,
       key: `pi-${nextId}`,
       title: values.title,
-      location: values.location,
-      position: posData.positions[nextId],
+      location: address,
+      position: posi,
       courses: [],
     };
     try {
@@ -74,13 +92,18 @@ function Create() {
         placeholder="Center 이름"
         onChange={handleChange}
       />
-      <label htmlFor="location">주소</label>
-      <input
-        name="location"
-        value={values.location}
-        placeholder="경기도 이천시"
-        onChange={handleChange}
-      />
+      <div>
+        <label htmlFor="location">주소</label>
+        <input
+          name="location"
+          value={values.location}
+          placeholder="경기도 이천시"
+          onChange={handleChange}
+        />
+        <button onClick={handleSearch} type="submit">
+          검색
+        </button>
+      </div>
       <button type="submit" disabled={isSubmitting}>
         등록하기
       </button>
