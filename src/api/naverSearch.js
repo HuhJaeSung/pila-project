@@ -5,7 +5,7 @@ const SECRET_KEY = "Gl9QYsCM7t";
 
 export async function naverSearch(query) {
   const items = await axios
-    .get("/api/v1/search/local.json", {
+    .get("/search/v1/search/local.json", {
       params: {
         query: query,
         display: 5,
@@ -22,7 +22,7 @@ export async function naverSearch(query) {
     })
     .then((data) => {
       console.log(data);
-      return [data.mapx, data.mapx];
+      return data.items;
     });
 
   return items;
