@@ -27,13 +27,19 @@ function Navbar() {
                 setMode("CREATE");
               }}
             >
-              <NavLink to="/form">센터 등록하기</NavLink>
+              <NavLink className="Button" to="/form">
+                센터 등록하기
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/Menu2">놀아요</NavLink>
+              <NavLink className="Button" to="/">
+                놀아요
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">Menu3</NavLink>
+              <NavLink className="Button" to="/SignUp">
+                회원가입
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -7,6 +7,7 @@ import "./style.css";
 import CourseForm from "./components/CourseForm";
 import CenterForm from "./components/CenterForm";
 import AppStateProviders from "./providers/AppStateProviders";
+import SignUp from "./components/signupComponents/SignUp";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ ReactDOM.render(
               <Route index element={<CenterForm />} />
               <Route path=":courseId" element={<CourseForm />} />
             </Route>
+            <Route path="SignUp" element={<SignUp />} />
           </Routes>
         </AppStateProviders>
       </RenderAfterNavermapsLoaded>
