@@ -67,6 +67,7 @@
         "id": 1,
         "key": "cl-1",
         "date": "2022-02-22",
+        "time": "6",
         "price": 15000,
         "phonenumber": "010XXXXXXXX",
         "classtype": "혼합",

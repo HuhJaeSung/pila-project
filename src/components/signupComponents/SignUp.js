@@ -5,7 +5,8 @@ function SignUp() {
   // const [submit, setSubmit] = useState('');
 
   const handleSubmit = (e) => {
-    setSubmit(e.target.value)
+    // setSubmit(e.target.value)
+    console.log('Hi')
   }
   return (
     <>

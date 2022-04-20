@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useCenter from "../hooks/useCenter";
 import styles from "./CourseDatail.module.css";
 import { Link } from "react-router-dom";
@@ -9,14 +9,14 @@ import useSiderbar from "../hooks/useSiderbar";
 function CourseDetail() {
   const center = useCenter();
   const course = useCourse();
-  const {coursebar} = useSiderbar();
+  const { coursebar } = useSiderbar();
   const { setMode, toggleCourse, setCoursebar } = useActions();
   const handleCourseBar = (course) => {
     toggleCourse(course);
   };
   const handleClose = () => {
     setCoursebar(false);
-  }
+  };
 
   return (
     <>
