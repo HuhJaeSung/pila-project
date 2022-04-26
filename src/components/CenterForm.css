@@ -7,3 +7,9 @@
 .CenterForm > :not(:last-child) {
   margin-bottom: 20px;
 }
+
+.result {
+  background-color: yellowgreen;
+  border-radius: 3px;
+  margin-top: 5px;
+}

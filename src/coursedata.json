@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "key": "cl-1",
+    "date": "2022-02-22",
+    "price": 30000,
+    "phonenumber": "010XXXXXXXX",
+    "classtype": "그룹",
+    "taxfree": "O",
+    "desc": "그룹 가능하시고 원하시는 분은 이력서 요청드립니다. 010-XXXX-XXXX",
+    "position": {
+      "lat": 37.27943075229118,
+      "lon": 127.01763998406159
+    },
+    "location": "서울시 도봉구",
+    "centertitle": "당근 필라"
+  }
+]
