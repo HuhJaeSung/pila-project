@@ -2,14 +2,15 @@ import useActions from "../hooks/useActions";
 import styles from "./CourseinfoCard.module.css";
 
 function CourseinfoCard({ course }) {
-  const { toggleCourse } = useActions();
-  const handleCourseBar = (course) => {
-    toggleCourse(course);
+  // const { toggleCourse } = useActions();
+  // const handleCourseBar = (course) => {
+  //   toggleCourse(course);
 
-    // const { setCoursebar, setCourse } = useActions();
-    // const handleCourseBar = () => {
-    //   setCoursebar(true);
-    //   setCourse(course);
+  const { setCoursebar, setCourse } = useActions();
+  const handleCourseBar = () => {
+    setCoursebar(true);
+    setCourse(course);
+    console.log(course);
   };
 
   return (

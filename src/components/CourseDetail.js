@@ -12,6 +12,7 @@ function CourseDetail() {
   const { coursebar } = useSiderbar();
   const { setMode, toggleCourse, setCoursebar } = useActions();
   const handleCourseBar = (course) => {
+    console.log(course);
     toggleCourse(course);
   };
   const handleClose = () => {
@@ -50,7 +51,7 @@ function CourseDetail() {
             className={styles.CloseButton}
             onClick={() => {
               handleCourseBar(course);
-              console.log("Hi");
+              console.log("Hi", course);
             }}
           >
             닫기
