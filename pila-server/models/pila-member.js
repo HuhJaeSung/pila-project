@@ -11,21 +11,20 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Pila -
-    member.init(
-      {
-        signin_id: DataTypes.STRING,
-        signin_password: DataTypes.STRING,
-        name: DataTypes.STRING,
-        position: DataTypes.STRING,
-        email: DataTypes.STRING,
-        phoneNumber: DataTypes.STRING,
-        birthday: DataTypes.DATE,
-      },
-      {
-        sequelize,
-        modelName: "Pila-member",
-      }
-    );
+  Pila_member.init(
+    {
+      signin_id: DataTypes.STRING,
+      signin_password: DataTypes.STRING,
+      name: DataTypes.STRING,
+      position: DataTypes.STRING,
+      email: DataTypes.STRING,
+      phoneNumber: DataTypes.STRING,
+      birthday: DataTypes.DATE,
+    },
+    {
+      sequelize,
+      modelName: "Pila-member",
+    }
+  );
   return Pila_member;
 };
