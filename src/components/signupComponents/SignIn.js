@@ -1,9 +1,10 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import styles from "./SignIn.module.css";
 
 function SignIn() {
-  const [inputId, setInputId] = useState('');
-  const [inputPw, setInputPw] = useState('');
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
 
   const handleInputId = (e) => {
     setInputId(e.target.value);
@@ -14,12 +15,12 @@ function SignIn() {
   };
 
   const onClickSignIn = () => {
-    console.log('click Signin');
+    console.log("click Signin");
   };
 
   useEffect(() => {
     axios
-      .get('/user_inform/signin')
+      .get("/user_inform/signin")
       .then((res) => console.log(res))
       .catch();
   }, []);
@@ -28,24 +29,28 @@ function SignIn() {
     <div>
       <h2>SignIn</h2>
       <div>
-        <label htmlFor="input_id">ID : </label>
+        <label htmlFor='input_id'>ID : </label>
         <input
-          type="text"
-          name="input_id"
+          type='text'
+          name='input_id'
           value={inputId}
           onChange={handleInputId}
         />
         <div>
-          <label htmlFor="input_pw">PW : </label>
+          <label htmlFor='input_pw'>PW : </label>
           <input
-            type="password"
-            name="input_pw"
+            type='password'
+            name='input_pw'
             value={inputPw}
             onChange={handleInputPw}
           />
         </div>
         <div>
-          <button type="button" onClick={onClickSignIn}></button>
+          <button
+            type='button'
+            onClick={onClickSignIn}
+            className={styles.Button}
+          ></button>
         </div>
       </div>
     </div>
