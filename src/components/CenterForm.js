@@ -97,19 +97,19 @@ function Create() {
 
   return (
     <form className="CenterForm" onSubmit={handleCreateSubmit}>
-      <label htmlFor="title">Center명</label>
+      {/* <label htmlFor="title">찾으시는 장소가 있으신가요?</label>
       <input
         name="title"
         value={values.title}
         placeholder="Center 이름"
         onChange={handleChange}
-      />
+      /> */}
       <div>
-        <label htmlFor="location">주소</label>
+        <label htmlFor="location">찾으시는 장소가 있으신가요?</label>
         <input
           name="location"
           value={values.location}
-          placeholder="주소를 입력하세요."
+          placeholder="찾으시는 필라테스 명을 입력하세요. (위치 + 필라테스)"
           onChange={handleChange}
         />
         <button onClick={handleSearch} type="submit">
@@ -121,11 +121,13 @@ function Create() {
           {searchResult.map((pos) => {
             const click = () => {
               getGeocode(pos.address);
-              setTitle(pos.title);
+              setTitle(pos.title.replace(/<[^>]*>?/g, "").replace("amp;", ""));
             };
             return (
-              <li key={pos.address} onClick={click}>
-                {pos.title}
+              <li key={pos.address} onClick={click} className="result">
+                <h4>
+                  {pos.title.replace(/<[^>]*>?/g, "").replace("amp;", "")}
+                </h4>
               </li>
             );
           })}

@@ -27,9 +27,7 @@ function Navbar() {
                 setMode("CREATE");
               }}
             >
-              <NavLink className="Button" to="/form">
-                센터 등록하기
-              </NavLink>
+              <NavLink to="/form">강좌 등록하기</NavLink>
             </li>
             <li>
               <NavLink className="Button" to="/">

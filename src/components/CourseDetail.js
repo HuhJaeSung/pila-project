@@ -46,13 +46,7 @@ function CourseDetail() {
           </p>
         </div>
         <div className={styles.buttonContainer}>
-          <button
-            className={styles.CloseButton}
-            onClick={() => {
-              handleCourseBar(course);
-              console.log("Hi");
-            }}
-          >
+          <button className={styles.CloseButton} onClick={handleClose}>
             닫기
           </button>
         </div>
