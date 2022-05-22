@@ -12,6 +12,7 @@ function CourseDetail() {
   const { coursebar } = useSiderbar();
   const { setMode, toggleCourse, setCoursebar } = useActions();
   const handleCourseBar = (course) => {
+    console.log(course);
     toggleCourse(course);
   };
   const handleClose = () => {
@@ -22,7 +23,7 @@ function CourseDetail() {
     <>
       <div className={coursebar ? styles.bar : styles.baroff}>
         <div className={styles.container}>
-          <div className="close">
+          <div className='close'>
             <button onClick={handleClose}>❌</button>
           </div>
           <p>id: {course.id}</p>
@@ -46,7 +47,14 @@ function CourseDetail() {
           </p>
         </div>
         <div className={styles.buttonContainer}>
-          <button className={styles.CloseButton} onClick={handleClose}>
+          {/* <button className={styles.CloseButton} onClick={handleClose}> */}
+          <button
+            className={styles.CloseButton}
+            onClick={() => {
+              handleCourseBar(course);
+              console.log("Hi", course);
+            }}
+          >
             닫기
           </button>
         </div>
