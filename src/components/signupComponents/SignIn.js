@@ -20,7 +20,7 @@ function SignIn() {
 
   useEffect(() => {
     axios
-      .get("/user_inform/signin")
+      .get("/Signin")
       .then((res) => console.log(res))
       .catch();
   }, []);

@@ -9,7 +9,8 @@ const { sequelize } = db;
 app.use(express.json());
 
 app.get("./api/members", async (req, res) => {
-  const { position } = req.query;
+  const id = await sequelize.findAll();
+  res.send(id);
 });
 
 app.listen(process.env.PORT || 3001, () => {
