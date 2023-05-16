@@ -1,27 +1,26 @@
-import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
-import useActions from "../hooks/useActions";
-import useCenter from "../hooks/useCenter";
-import useCourse from "../hooks/useCourse";
-import useMode from "../hooks/useMode";
-import useSiderbar from "../hooks/useSiderbar";
-import "./CourseForm.css";
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import useActions from '../hooks/useActions';
+import useCenter from '../hooks/useCenter';
+import useCourse from '../hooks/useCourse';
+import useMode from '../hooks/useMode';
+import useSiderbar from '../hooks/useSiderbar';
+import './CourseForm.css';
 
 const INITIAL_VALUES = {
-  date: "",
+  date: '',
   price: 0,
-  phonenumber: "",
-  classtype: "",
+  phonenumber: '',
+  classtype: '',
   taxfree: null,
-  desc: "",
+  desc: '',
 };
-const SELECT_LIST = ["개인", "그룹", "도구", "혼합"];
+const SELECT_LIST = ['개인', '그룹', '도구', '혼합'];
 
 function Create() {
   const [values, setValues] = useState(INITIAL_VALUES);
 
-  const center = useCenter();
-  const { courses } = center;
+  const { courses } = useCenter();
   const [nextId, setNextId] = useState(
     courses.length ? courses[courses.length - 1].id + 1 : 1
   );
@@ -31,7 +30,7 @@ function Create() {
   const { setSidebar, setMode, setCoursebar, setCourse } = useActions();
 
   const onCancel = () => {
-    setMode("WELCOME");
+    setMode('WELCOME');
     return;
   };
 
@@ -66,7 +65,7 @@ function Create() {
       }
       setNextId(nextId + 1);
       setValues(INITIAL_VALUES);
-      setMode("WELCOME");
+      setMode('WELCOME');
     }
   };
 
@@ -128,7 +127,7 @@ function Create() {
           type="radio"
           id="notFree"
           name="taxfree"
-          value={"X"}
+          value={'X'}
           onChange={handleChange}
         />
       </div>
@@ -170,7 +169,7 @@ function Update() {
   const { setSidebar, setMode, setCoursebar, setCourse } = useActions();
 
   const onCancel = () => {
-    setMode("WELCOME");
+    setMode('WELCOME');
     return;
   };
 
@@ -215,7 +214,7 @@ function Update() {
         setCoursebar(!coursebar);
       }
       setValues(INITIAL_VALUES);
-      setMode("WELCOME");
+      setMode('WELCOME');
     }
   };
 
@@ -269,7 +268,7 @@ function Update() {
           type="radio"
           id="notFree"
           name="taxfree"
-          value={"X"}
+          value={'X'}
           onChange={handleChange}
         />
       </div>
@@ -294,12 +293,12 @@ function CourseForm() {
   const mode = useMode();
   let content = null;
 
-  if (mode === "WELCOME") {
+  if (mode === 'WELCOME') {
     return <Navigate to="/" />;
-  } else if (mode === "CREATE") {
-    content = <Create></Create>;
-  } else if (mode === "UPDATE") {
-    content = <Update></Update>;
+  } else if (mode === 'CREATE') {
+    content = <Create />;
+  } else if (mode === 'UPDATE') {
+    content = <Update />;
   }
   return <div>{content}</div>;
 }
