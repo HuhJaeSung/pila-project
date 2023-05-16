@@ -1,30 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import useActions from "../hooks/useActions";
-import useCenter from "../hooks/useCenter";
-import useSiderbar from "../hooks/useSiderbar";
-import CourseDetail from "./CourseDetail";
-import CourseinfoCard from "./CourseinfoCard";
-import "./MainData.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import useActions from '../hooks/useActions';
+import useCenter from '../hooks/useCenter';
+import useSiderbar from '../hooks/useSiderbar';
+import CourseDetail from './CourseDetail';
+import CourseinfoCard from './CourseinfoCard';
+import './MainData.css';
 
 function MainData() {
-  const center = useCenter();
+  const { key, title, location, courses } = useCenter();
   const { sidebar, coursebar } = useSiderbar();
   const { deleteCenter, setMode, setSidebar, setCoursebar } = useActions();
   const handleDelelte = () => {
-    deleteCenter(center.key);
+    deleteCenter(key);
     setCoursebar(false);
-  }
+  };
   const handleClose = () => {
     setSidebar(false);
     setCoursebar(false);
     console.log(coursebar);
   };
 
-  const { key, title, location, courses } = center;
   return (
     <>
-      <nav className={sidebar ? "centers active" : "centers"}>
+      <nav className={sidebar ? 'centers active' : 'centers'}>
         <div className="container">
           <div className="center" key={key}>
             <div className="center__title">
@@ -32,7 +31,7 @@ function MainData() {
               <Link to={`form`}>
                 <button
                   onClick={() => {
-                    setMode("UPDATE");
+                    setMode('UPDATE');
                   }}
                 >
                   센터 수정하기
@@ -62,10 +61,10 @@ function MainData() {
                   ))}
                 </ul>
               )}
-              <Link to={`form/${center.key}`}>
+              <Link to={`form/${key}`}>
                 <button
                   onClick={() => {
-                    setMode("CREATE");
+                    setMode('CREATE');
                   }}
                 >
                   강좌 등록하기
