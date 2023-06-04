@@ -16,19 +16,41 @@
   transition: 350ms;
 }
 
-.empty {
-  margin-top: 60px;
-  width: 20%;
+.AddClass {
+  position: absolute;
+  margin: 10px;
+  background: skyblue;
+  width: 380px;
+  height: 80px;
+  border: 2px dashed blue;
 }
 
-.AddClass {
-  margin: 10px;
-  background: orange;
-  width: 400px;
-  height: 80px;
+.AddClass:after {
+  width: 45px;
+  background: black;
+  height: 4px;
+  position: absolute;
+  content: '';
+  bottom: 48%;
+  left: 44.5%;
+}
+
+.AddClass:before {
+  width: 4px;
+  height: 45px;
+  background: black;
+  position: absolute;
+  content: '';
+  top: 20%;
+  left: 50%;
 }
 
 .courses {
   background-color: blue;
   margin: 10px;
+}
+
+.classcard {
+  margin: 10px;
+  height: 110px;
 }

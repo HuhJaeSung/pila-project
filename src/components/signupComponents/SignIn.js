@@ -1,10 +1,17 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import styles from "./SignIn.module.css";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import styles from './SignIn.module.css';
+import { Navigate } from 'react-router-dom';
+import useActions from '../../hooks/useActions';
+import useMode from '../../hooks/useMode';
 
 function SignIn() {
-  const [inputId, setInputId] = useState("");
-  const [inputPw, setInputPw] = useState("");
+  const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
+
+  const onHome = () => {
+    <Navigate to="/" />;
+  };
 
   const handleInputId = (e) => {
     setInputId(e.target.value);
@@ -15,12 +22,12 @@ function SignIn() {
   };
 
   const onClickSignIn = () => {
-    console.log("click Signin");
+    console.log('click Signin');
   };
 
   useEffect(() => {
     axios
-      .get("/Signin")
+      .get('/Signin')
       .then((res) => console.log(res))
       .catch();
   }, []);
@@ -29,31 +36,32 @@ function SignIn() {
     <div>
       <h2>SignIn</h2>
       <div>
-        <label htmlFor='input_id'>ID : </label>
+        <label htmlFor="input_id">ID : </label>
         <input
-          type='text'
-          name='input_id'
+          type="text"
+          name="input_id"
           value={inputId}
           onChange={handleInputId}
         />
         <div>
-          <label htmlFor='input_pw'>PW : </label>
+          <label htmlFor="input_pw">PW : </label>
           <input
-            type='password'
-            name='input_pw'
+            type="password"
+            name="input_pw"
             value={inputPw}
             onChange={handleInputPw}
           />
         </div>
         <div>
           <button
-            type='button'
+            type="button"
             onClick={onClickSignIn}
             className={styles.Button}
           >
             로그인
           </button>
-          <button>취소</button>
+
+          <button onClick={onHome}>취소</button>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@
 }
 
 .AddButton:after {
-  content: "";
+  content: '';
   position: absolute;
   transform: translate(-50%, -50%);
   height: 4px;
@@ -22,7 +22,7 @@
 }
 
 .AddButton:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
