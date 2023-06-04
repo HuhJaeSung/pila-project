@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCenter from "../hooks/useCenter";
 import useSiderbar from "../hooks/useSiderbar";
@@ -61,7 +61,7 @@ function MainData() {
                   ))}
                 </ul>
               )}
-              <NavLink to={`form/${center.key}`}>
+              <NavLink to={`form/${key}`}>
                 <div
                   className='AddClass'
                   onClick={() => {
