@@ -7,6 +7,8 @@ import useMode from "../hooks/useMode";
 import useSiderbar from "../hooks/useSiderbar";
 import "./CourseForm.css";
 
+const SELECT_LIST = ["개인", "그룹", "도구", "혼합"];
+
 const INITIAL_VALUES = {
   date: "",
   price: 0,
@@ -15,13 +17,11 @@ const INITIAL_VALUES = {
   taxfree: null,
   desc: "",
 };
-const SELECT_LIST = ["개인", "그룹", "도구", "혼합"];
 
 function Create() {
   const [values, setValues] = useState(INITIAL_VALUES);
 
-  const center = useCenter();
-  const { courses } = center;
+  const { courses } = useCenter();
   const [nextId, setNextId] = useState(
     courses.length ? courses[courses.length - 1].id + 1 : 1
   );
@@ -79,68 +79,68 @@ function Create() {
   };
 
   return (
-    <form className="CourseForm" onSubmit={handleCreateSubmit}>
-      <label htmlFor="date">강좌 날짜</label>
+    <form className='CourseForm' onSubmit={handleCreateSubmit}>
+      <label htmlFor='date'>강좌 날짜</label>
       <input
-        type="date"
-        name="date"
+        type='date'
+        name='date'
         value={values.date}
         onChange={handleChange}
       />
-      <label htmlFor="price">대강 가격</label>
+      <label htmlFor='price'>대강 가격</label>
       <input
-        type="number"
-        name="price"
-        min="15000"
-        max="50000"
-        step="1000"
+        type='number'
+        name='price'
+        min='15000'
+        max='50000'
+        step='1000'
         value={values.price}
         onChange={handleChange}
       />
-      <label htmlFor="price">폰 번호</label>
+      <label htmlFor='price'>폰 번호</label>
       <input
-        type="tel"
-        name="phonenumber"
-        placeholder="010XXXXXXXX"
+        type='tel'
+        name='phonenumber'
+        placeholder='010XXXXXXXX'
         value={values.phonenumber}
         onChange={handleChange}
       />
-      <label htmlFor="classtype">수업 유형</label>
-      <select name="classtype" onChange={handleChange} value={values.classtype}>
+      <label htmlFor='classtype'>수업 유형</label>
+      <select name='classtype' onChange={handleChange} value={values.classtype}>
         {SELECT_LIST.map((item) => (
           <option value={item} key={item}>
             {item}
           </option>
         ))}
       </select>
-      <label htmlFor="taxfree">세금 감면</label>
+      <label htmlFor='taxfree'>세금 감면</label>
       <div>
-        <label htmlFor="free">O</label>
+        <label htmlFor='free'>O</label>
         <input
-          type="radio"
-          id="free"
-          name="taxfree"
+          type='radio'
+          id='free'
+          name='taxfree'
           value={true}
           onChange={handleChange}
         />
-        <label htmlFor="notFree">X</label>
+        <label htmlFor='notFree'>X</label>
         <input
-          type="radio"
-          id="notFree"
-          name="taxfree"
+          type='radio'
+          id='notFree'
+          name='taxfree'
           value={"X"}
           onChange={handleChange}
         />
       </div>
-      <label htmlFor="desc">상세 내용</label>
+      <label htmlFor='desc'>상세 내용</label>
       <textarea
-        type="text"
-        name="desc"
-        placeholder="추가설명"
+        type='text'
+        name='desc'
+        placeholder='추가설명'
         value={values.desc}
         onChange={handleChange}
       ></textarea>
-      <button type="submit" disabled={isSubmitting}>
+      <button type='submit' disabled={isSubmitting}>
         등록하기
       </button>
       {submittingError?.message && <div>{submittingError.message}</div>}
@@ -152,22 +152,20 @@ function Create() {
 function Update() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState(null);
-  const center = useCenter();
-  const { courses } = center;
+  const { courses } = useCenter();
   const course = useCourse();
-  const { id, key, date, price, phonenumber, classtype, taxfree, desc } =
-    course;
-  const initialValue = {
-    date: date,
-    price: price,
-    phonenumber: phonenumber,
-    classtype: classtype,
-    taxfree: taxfree,
-    desc: desc,
-  };
-  const [values, setValues] = useState(initialValue);
   const { sidebar, coursebar } = useSiderbar();
   const { setSidebar, setMode, setCoursebar, setCourse } = useActions();
+
+  const BEFOREVALUES = {
+    date: course.date,
+    price: course.price,
+    phonenumber: course.phonenumber,
+    classtype: course.classtype,
+    taxfree: course.taxfree,
+    desc: course.desc,
+  };
+  const [values, setValues] = useState(BEFOREVALUES);
 
   const onCancel = () => {
     setMode("WELCOME");
@@ -185,8 +183,8 @@ function Update() {
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     const newCourse = {
-      id: id,
-      key: key,
+      id: course.id,
+      key: course.key,
       date: values.date,
       price: values.price,
       phonenumber: values.phonenumber,
@@ -220,68 +218,68 @@ function Update() {
   };
 
   return (
-    <form className="CourseForm" onSubmit={handleUpdateSubmit}>
-      <label htmlFor="date">강좌 날짜</label>
+    <form className='CourseForm' onSubmit={handleUpdateSubmit}>
+      <label htmlFor='date'>강좌 날짜</label>
       <input
-        type="date"
-        name="date"
+        type='date'
+        name='date'
         value={values.date}
         onChange={handleChange}
       />
-      <label htmlFor="price">대강 가격</label>
+      <label htmlFor='price'>대강 가격</label>
       <input
-        type="number"
-        name="price"
-        min="15000"
-        max="50000"
-        step="1000"
+        type='number'
+        name='price'
+        min='15000'
+        max='50000'
+        step='1000'
         value={values.price}
         onChange={handleChange}
       />
-      <label htmlFor="price">폰 번호</label>
+      <label htmlFor='price'>폰 번호</label>
       <input
-        type="tel"
-        name="phonenumber"
-        placeholder="010XXXXXXXX"
+        type='tel'
+        name='phonenumber'
+        placeholder='010XXXXXXXX'
         value={values.phonenumber}
         onChange={handleChange}
       />
-      <label htmlFor="classtype">수업 유형</label>
-      <select name="classtype" onChange={handleChange} value={values.classtype}>
+      <label htmlFor='classtype'>수업 유형</label>
+      <select name='classtype' onChange={handleChange} value={values.classtype}>
         {SELECT_LIST.map((item) => (
           <option value={item} key={item}>
             {item}
           </option>
         ))}
       </select>
-      <label htmlFor="taxfree">세금 감면</label>
+      <label htmlFor='taxfree'>세금 감면</label>
       <div>
-        <label htmlFor="free">O</label>
+        <label htmlFor='free'>O</label>
         <input
-          type="radio"
-          id="free"
-          name="taxfree"
+          type='radio'
+          id='free'
+          name='taxfree'
           value={true}
           onChange={handleChange}
         />
-        <label htmlFor="notFree">X</label>
+        <label htmlFor='notFree'>X</label>
         <input
-          type="radio"
-          id="notFree"
-          name="taxfree"
+          type='radio'
+          id='notFree'
+          name='taxfree'
           value={"X"}
           onChange={handleChange}
         />
       </div>
-      <label htmlFor="desc">상세 내용</label>
+      <label htmlFor='desc'>상세 내용</label>
       <textarea
-        type="text"
-        name="desc"
-        placeholder="추가설명"
+        type='text'
+        name='desc'
+        placeholder='추가설명'
         value={values.desc}
         onChange={handleChange}
       ></textarea>
-      <button type="submit" disabled={isSubmitting}>
+      <button type='submit' disabled={isSubmitting}>
         수정하기
       </button>
       {submittingError?.message && <div>{submittingError.message}</div>}
@@ -295,11 +293,11 @@ function CourseForm() {
   let content = null;
 
   if (mode === "WELCOME") {
-    return <Navigate to="/" />;
+    return <Navigate to='/' />;
   } else if (mode === "CREATE") {
-    content = <Create></Create>;
+    content = <Create />;
   } else if (mode === "UPDATE") {
-    content = <Update></Update>;
+    content = <Update />;
   }
   return <div>{content}</div>;
 }

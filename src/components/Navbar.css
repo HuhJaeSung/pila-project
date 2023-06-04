@@ -16,11 +16,23 @@ ul.menu {
   align-items: center;
   padding: 30px;
   margin: 0;
+}
+
+ul li {
+  font-size: 20px;
   list-style: none;
   text-decoration: none;
-  font-size: 20px;
   font-weight: bold;
+}
+
+.Button {
+  color: white;
   text-decoration: none;
+  font-size: 16px;
+}
+
+.Button:hover {
+  background-color: #1a83ff;
 }
 
 ul.menu > li:not(:last-child) {
@@ -31,6 +43,7 @@ ul.menu > li:not(:last-child) {
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
+  z-index: 6;
 }
 
 .nav-menu {
@@ -43,11 +56,13 @@ ul.menu > li:not(:last-child) {
   top: 0;
   left: -100%;
   transition: 850ms;
+  z-index: 2;
 }
 
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+  z-index: 2;
 }
 
 .nav-text {

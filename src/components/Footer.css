@@ -11,3 +11,8 @@
 .footer-background h1 {
   color: #fff;
 }
+
+.AddButton {
+  font-size: 40px;
+  background-color: orange;
+}

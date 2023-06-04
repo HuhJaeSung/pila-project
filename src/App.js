@@ -9,8 +9,8 @@ import CourseDetail from "./components/CourseDetail";
 export default function App() {
   return (
     <div className="containers">
-      <Navbar className="navbar" />
       <div className="details">
+        <Navbar className="navbar" />
         <NaverApiMap className="Map" />
         <MainData />
         <CourseDetail />

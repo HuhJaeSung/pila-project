@@ -17,30 +17,32 @@ function Navbar() {
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="nav">
-          <Link to="#" className="menu-bars">
+        <div className='nav'>
+          <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <ul className="menu">
-            <li
-              onClick={() => {
-                setMode("CREATE");
-              }}
-            >
-              <NavLink to="/form">강좌 등록하기</NavLink>
+          <ul className='menu'>
+            <li>
+              <NavLink className='Button' to='/'>
+                놀아요
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/Menu2">놀아요</NavLink>
+              <NavLink className='Button' to='/SignIn'>
+                로그인
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">Menu3</NavLink>
+              <NavLink className='Button' to='/SignUp'>
+                회원가입
+              </NavLink>
             </li>
           </ul>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items">
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
+          <ul className='nav-menu-items'>
+            <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
                 <AiIcons.AiOutlineClose
                   onClick={() => {
                     showSidebar();

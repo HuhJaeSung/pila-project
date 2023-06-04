@@ -10,10 +10,8 @@ function CourseDetail() {
   const center = useCenter();
   const course = useCourse();
   const { coursebar } = useSiderbar();
-  const { setMode, toggleCourse, setCoursebar } = useActions();
-  const handleCourseBar = (course) => {
-    toggleCourse(course);
-  };
+  const { setMode, setCoursebar } = useActions();
+
   const handleClose = () => {
     setCoursebar(false);
   };
@@ -22,7 +20,7 @@ function CourseDetail() {
     <>
       <div className={coursebar ? styles.bar : styles.baroff}>
         <div className={styles.container}>
-          <div className="close">
+          <div className='close'>
             <button onClick={handleClose}>❌</button>
           </div>
           <p>id: {course.id}</p>
@@ -43,18 +41,8 @@ function CourseDetail() {
                 강좌 수정하기
               </button>
             </Link>
+            <button>지원하기</button>
           </p>
-        </div>
-        <div className={styles.buttonContainer}>
-          <button
-            className={styles.CloseButton}
-            onClick={() => {
-              handleCourseBar(course);
-              console.log("Hi");
-            }}
-          >
-            닫기
-          </button>
         </div>
       </div>
     </>
