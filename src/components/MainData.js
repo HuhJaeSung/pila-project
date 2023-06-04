@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCenter from "../hooks/useCenter";
 import useSiderbar from "../hooks/useSiderbar";
@@ -14,7 +14,7 @@ function MainData() {
   const handleDelelte = () => {
     deleteCenter(center.key);
     setCoursebar(false);
-  }
+  };
   const handleClose = () => {
     setSidebar(false);
     setCoursebar(false);
@@ -25,9 +25,9 @@ function MainData() {
   return (
     <>
       <nav className={sidebar ? "centers active" : "centers"}>
-        <div className="container">
-          <div className="center" key={key}>
-            <div className="center__title">
+        <div className='container'>
+          <div className='center' key={key}>
+            <div className='center__title'>
               <h2>{title}</h2>
               <Link to={`form`}>
                 <button
@@ -39,10 +39,10 @@ function MainData() {
                 </button>
               </Link>
               <button onClick={handleDelelte}>센터 삭제하기</button>
-              <div className="close">
+              <div className='close'>
                 <button onClick={handleClose}>❌</button>
               </div>
-              <p className="center__location">위치 : {location}</p>
+              <p className='center__location'>위치 : {location}</p>
             </div>
           </div>
         </div>
@@ -54,23 +54,22 @@ function MainData() {
                   <h1> 등록된 강좌가 없습니다.</h1>
                 </div>
               ) : (
-                <ul className="courses">
+                <ul className='courses'>
                   {courses.map((course) => (
-                    <li key={course.id}>
+                    <li className='classcard' key={course.id}>
                       <CourseinfoCard key={course.id} course={course} />
                     </li>
                   ))}
                 </ul>
               )}
-              <Link to={`form/${center.key}`}>
-                <button
+              <NavLink to={`form/${center.key}`}>
+                <div
+                  className='AddClass'
                   onClick={() => {
                     setMode("CREATE");
                   }}
-                >
-                  강좌 등록하기
-                </button>
-              </Link>
+                ></div>
+              </NavLink>
             </div>
           )}
         </div>

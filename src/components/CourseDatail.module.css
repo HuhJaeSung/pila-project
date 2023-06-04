@@ -10,15 +10,15 @@
 
 .bar {
   top: 0px;
-  left: 375px;
-  width: 300px;
+  left: 0px;
+  width: 400px;
   height: 100%;
   background-color: lemonchiffon;
   justify-content: center;
   align-items: center;
   position: fixed;
   transition: 300ms;
-  z-index: 5;
+  z-index: 9;
 }
 
 .baroff {
@@ -44,22 +44,4 @@
 
 .card p {
   padding: 5px;
-}
-
-.buttonContainer {
-  top: 50px;
-  position: relative;
-  left: 300px;
-  height: 110px;
-  width: 35px;
-  background-color: lemonchiffon;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.CloseButton {
-  height: 100px;
-  width: 30px;
-  position: relative;
-  top: 5px;
-  left: 0;
 }

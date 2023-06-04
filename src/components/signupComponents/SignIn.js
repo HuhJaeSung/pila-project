@@ -53,6 +53,7 @@ function SignIn() {
           >
             로그인
           </button>
+          <button>취소</button>
         </div>
       </div>
     </div>

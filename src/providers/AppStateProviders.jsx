@@ -3,6 +3,7 @@ import AppStateContext from "../contexts/AppStateContext";
 import centerList from "../classdata.json";
 
 const AppStateProvider = ({ children }) => {
+  // useState의 초기값으로 콜백을 호출하면, 맨 처음 한 번만 실행한다.
   const [centers, setCenters] = useState(() => {
     return centerList;
   });
@@ -19,7 +20,7 @@ const AppStateProvider = ({ children }) => {
   const deleteCenter = useCallback(
     (key) => {
       setSidebar(toggleSide(sidebar));
-      const nextItems = centers.filter((itme) => itme.key !== key);
+      const nextItems = centers.filter((item) => item.key !== key);
       setCenters(nextItems);
     },
     [centers, sidebar]
@@ -28,27 +29,15 @@ const AppStateProvider = ({ children }) => {
   const addToCenter = useCallback(
     (key) => {
       if (!sidebar) {
-        setSidebar(toggleSide(sidebar));
+        // addToCenter의 경우엔 false인 경우 밖에 없음
+        // sidebar가 false 이면, Sidebar를 true로 바꾼다
+        setSidebar(true);
       }
       setCoursebar(false);
       const find = centers.find((c) => c.key === key);
       setCenter(find);
     },
     [center, sidebar, centers]
-  );
-
-  const toggleCourse = useCallback(
-    (nextCourse) => {
-      if (coursebar === false) {
-        setCoursebar(true);
-      } else if (coursebar === true) {
-        if (course === nextCourse) {
-          setCoursebar(false);
-        }
-      }
-      setCourse(nextCourse);
-    },
-    [coursebar]
   );
 
   return (
@@ -69,7 +58,6 @@ const AppStateProvider = ({ children }) => {
         setCoursebar,
         setCourse,
         setMode,
-        toggleCourse,
       }}
     >
       {children}

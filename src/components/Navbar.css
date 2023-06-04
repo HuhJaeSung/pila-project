@@ -28,6 +28,7 @@ ul li {
 .Button {
   color: white;
   text-decoration: none;
+  font-size: 16px;
 }
 
 .Button:hover {

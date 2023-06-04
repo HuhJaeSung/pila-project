@@ -1,0 +1,44 @@
+.AddButton {
+  background: white;
+  position: absolute;
+  bottom: 120px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: 1px solid #060b25;
+  border-radius: 43%;
+}
+
+.AddButton:after {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 4px;
+  width: 50%;
+  background: #060b25;
+  top: 50%;
+  left: 50%;
+}
+
+.AddButton:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #060b25;
+  height: 50%;
+  width: 4px;
+}
+
+.AddButton:hover:before,
+.AddButton:hover:after {
+  background: #fff;
+  transition: 0.2s;
+}
+
+.AddButton:hover {
+  background-color: #060b25;
+  transition: 0.2s;
+}

@@ -22,13 +22,6 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <ul className='menu'>
-            <li
-              onClick={() => {
-                setMode("CREATE");
-              }}
-            >
-              <NavLink to='/form'>강좌 등록하기</NavLink>
-            </li>
             <li>
               <NavLink className='Button' to='/'>
                 놀아요

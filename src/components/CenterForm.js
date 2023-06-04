@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Navigate } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCenters from "../hooks/useCenters";
@@ -19,14 +19,16 @@ function Create() {
   const [submittingError, setSubmittingError] = useState(null);
   const { sidebar } = useSiderbar();
   const centers = useCenters();
-  const { setCenters, setCenter, setSidebar } = useActions();
+  const { setCenters, setCenter, setSidebar, setMode } = useActions();
   const [nextId, setNextId] = useState(centers[centers.length - 1].id + 1);
   const [values, setValues] = useState(INITIAL_VALUES);
-  const { setMode } = useActions();
   const [posi, setPosi] = useState([]);
   const [address, setAdress] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [title, setTitle] = useState("");
+
+  // -- Hooks --
+  const centerRef = useRef();
 
   // const handleSearch = async (e) => {
   //   e.preventDefault();
@@ -95,8 +97,13 @@ function Create() {
     }
   };
 
+  useEffect(() => {
+    // 첫 렌더링 시, 인풋 값에 커서 focus
+    centerRef.current.focus();
+  }, []);
+
   return (
-    <form className="CenterForm" onSubmit={handleCreateSubmit}>
+    <form className='CenterForm' onSubmit={handleCreateSubmit}>
       {/* <label htmlFor="title">찾으시는 장소가 있으신가요?</label>
       <input
         name="title"
@@ -105,14 +112,15 @@ function Create() {
         onChange={handleChange}
       /> */}
       <div>
-        <label htmlFor="location">찾으시는 장소가 있으신가요?</label>
+        <label htmlFor='location'>찾으시는 장소가 있으신가요?</label>
         <input
-          name="location"
+          name='location'
           value={values.location}
-          placeholder="찾으시는 필라테스 명을 입력하세요. (위치 + 필라테스)"
+          placeholder='찾으시는 필라테스 명을 입력하세요. (위치 + 필라테스)'
           onChange={handleChange}
+          ref={centerRef}
         />
-        <button onClick={handleSearch} type="submit">
+        <button onClick={handleSearch} type='submit'>
           검색
         </button>
       </div>
@@ -124,7 +132,7 @@ function Create() {
               setTitle(pos.title.replace(/<[^>]*>?/g, "").replace("amp;", ""));
             };
             return (
-              <li key={pos.address} onClick={click} className="result">
+              <li key={pos.address} onClick={click} className='result'>
                 <h4>
                   {pos.title.replace(/<[^>]*>?/g, "").replace("amp;", "")}
                 </h4>
@@ -133,7 +141,8 @@ function Create() {
           })}
         </ul>
       </div>
-      <button type="submit" disabled={isSubmitting}>
+      <p>주소 : {address}</p>
+      <button type='submit' disabled={isSubmitting}>
         등록하기
       </button>
       {onCancel && <button onClick={onCancel}>취소</button>}
@@ -147,11 +156,10 @@ function Update() {
   const [submittingError, setSubmittingError] = useState(null);
   const sidebar = useSiderbar();
   const center = useCenter();
-  const { setCenters, setCenter, setSidebar } = useActions();
+  const { setCenters, setCenter, setSidebar, setMode } = useActions();
   const { id, key, title, location, position, courses } = center;
   const initialValue = { title: title, location: location };
   const [values, setValues] = useState(initialValue);
-  const { setMode } = useActions();
 
   const onCancel = () => {
     setMode("WELCOME");
@@ -199,22 +207,22 @@ function Update() {
   };
 
   return (
-    <form className="CenterForm" onSubmit={handleUpdateSubmit}>
-      <label htmlFor="title">Center명</label>
+    <form className='CenterForm' onSubmit={handleUpdateSubmit}>
+      <label htmlFor='title'>Center명</label>
       <input
-        name="title"
+        name='title'
         value={values.title}
-        placeholder="Center 이름"
+        placeholder='Center 이름'
         onChange={handleChange}
       />
-      <label htmlFor="location">주소</label>
+      <label htmlFor='location'>주소</label>
       <input
-        name="location"
+        name='location'
         value={values.location}
-        placeholder="경기도 이천시"
+        placeholder='경기도 이천시'
         onChange={handleChange}
       />
-      <button type="submit" disabled={isSubmitting}>
+      <button type='submit' disabled={isSubmitting}>
         수정하기
       </button>
       {onCancel && <button onClick={onCancel}>취소</button>}
@@ -228,7 +236,7 @@ function CenterForm() {
   let content = null;
 
   if (mode === "WELCOME") {
-    return <Navigate to="/" />;
+    return <Navigate to='/' />;
   } else if (mode === "CREATE") {
     content = <Create></Create>;
   } else if (mode === "UPDATE") {

@@ -1,13 +1,13 @@
 .centers {
   position: fixed;
-  width: 375px;
+  width: 400px;
   height: 100vh;
   background-color: #f7edda;
   justify-content: center;
   align-items: center;
   top: 0;
-  left: -100%;
-  transition: 850ms;
+  left: -200%;
+  transition: 500ms;
   z-index: 6;
 }
 
@@ -19,4 +19,16 @@
 .empty {
   margin-top: 60px;
   width: 20%;
+}
+
+.AddClass {
+  margin: 10px;
+  background: orange;
+  width: 400px;
+  height: 80px;
+}
+
+.courses {
+  background-color: blue;
+  margin: 10px;
 }
