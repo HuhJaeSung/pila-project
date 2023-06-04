@@ -27,6 +27,7 @@ root.render(
     <React.StrictMode>
       <NavermapsProvider ncpClientId={"9gnpxruwbr"}>
         <AppStateProviders>
+          {/* children */}
           <Routes>
             <Route path='/' element={<App />} />
             <Route path='form'>
@@ -36,6 +37,7 @@ root.render(
             <Route path='SignUp' element={<SignUp />} />
             <Route path='SignIn' element={<SignIn />} />
           </Routes>
+          {/* children */}
         </AppStateProviders>
       </NavermapsProvider>
     </React.StrictMode>

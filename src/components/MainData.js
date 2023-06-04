@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useActions from "../hooks/useActions";
 import useCenter from "../hooks/useCenter";
 import useSiderbar from "../hooks/useSiderbar";
@@ -8,11 +8,11 @@ import CourseinfoCard from "./CourseinfoCard";
 import "./MainData.css";
 
 function MainData() {
-  const center = useCenter();
+  const { key, title, location, courses } = useCenter();
   const { sidebar, coursebar } = useSiderbar();
   const { deleteCenter, setMode, setSidebar, setCoursebar } = useActions();
   const handleDelelte = () => {
-    deleteCenter(center.key);
+    deleteCenter(key);
     setCoursebar(false);
   };
   const handleClose = () => {
@@ -21,7 +21,6 @@ function MainData() {
     console.log(coursebar);
   };
 
-  const { key, title, location, courses } = center;
   return (
     <>
       <nav className={sidebar ? "centers active" : "centers"}>

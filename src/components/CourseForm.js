@@ -21,8 +21,7 @@ const INITIAL_VALUES = {
 function Create() {
   const [values, setValues] = useState(INITIAL_VALUES);
 
-  const center = useCenter();
-  const { courses } = center;
+  const { courses } = useCenter();
   const [nextId, setNextId] = useState(
     courses.length ? courses[courses.length - 1].id + 1 : 1
   );
@@ -296,9 +295,9 @@ function CourseForm() {
   if (mode === "WELCOME") {
     return <Navigate to='/' />;
   } else if (mode === "CREATE") {
-    content = <Create></Create>;
+    content = <Create />;
   } else if (mode === "UPDATE") {
-    content = <Update></Update>;
+    content = <Update />;
   }
   return <div>{content}</div>;
 }
