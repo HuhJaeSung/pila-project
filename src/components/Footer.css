@@ -1,18 +1,58 @@
 .footer-background {
   background-color: #060b26;
-  height: 10vh;
+  height: 200px;
   bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9;
+  position: absolute;
+  color: white;
 }
 
-.footer-background h1 {
-  color: #fff;
+.Footer-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  padding: 10px;
 }
 
-.AddButton {
-  font-size: 40px;
+.Footer-Buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Footer-Buttons div {
+  padding: 0 5px;
+}
+
+.Footer-contents {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Footer-contents span {
+  margin-bottom: 10px;
+}
+
+.Footer-icons {
+  margin-top: 10px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-container span {
+  width: 30px;
+  height: 30px;
   background-color: orange;
+  padding: 10px;
 }

@@ -4,6 +4,7 @@ import styles from './SignIn.module.css';
 import { Navigate } from 'react-router-dom';
 import useActions from '../../hooks/useActions';
 import useMode from '../../hooks/useMode';
+import Footer from '../Footer';
 
 function SignIn() {
   const [inputId, setInputId] = useState('');
@@ -64,6 +65,7 @@ function SignIn() {
           <button onClick={onHome}>취소</button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

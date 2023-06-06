@@ -1,10 +1,10 @@
-import React from "react";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import NaverApiMap from "./components/NaverApiMap";
-import "./App.css";
-import MainData from "./components/MainData";
-import CourseDetail from "./components/CourseDetail";
+import React from 'react';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import NaverApiMap from './components/NaverApiMap';
+import './App.css';
+import MainData from './components/MainData';
+import CourseDetail from './components/CourseDetail';
 
 export default function App() {
   return (
@@ -15,7 +15,6 @@ export default function App() {
         <MainData />
         <CourseDetail />
       </div>
-      <Footer className="footer" />
     </div>
   );
 }
