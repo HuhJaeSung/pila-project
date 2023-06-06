@@ -19,14 +19,16 @@ function CourseinfoCard({ course }) {
           <h1>Loading</h1>
         ) : (
           <div>
-            <div className={styles.container} onClick={handleCourseBar}>
-              <div className='course' key={course.id}>
-                <div className='course__title'>
-                  <h2>{course.date}</h2>
+            <div className={styles.card_item} onClick={handleCourseBar}>
+              <div className={styles.course} key={course.id}>
+                <div className={styles.course__title}>
+                  <h2 className={styles.title}>{course.date}</h2>
                 </div>
               </div>
-              <p className='course__location'>폰번호 : {course.phonenumber}</p>
-              <p className='course__hours'>시간 : {course.hours}</p>
+              <p className={styles.course__location}>
+                폰번호 : {course.phonenumber}
+              </p>
+              <p className={styles.course__hours}>시간 : {course.hours}</p>
             </div>
           </div>
         )}

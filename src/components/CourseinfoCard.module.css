@@ -1,10 +1,14 @@
-.container {
+.card_item {
   background-color: orange;
-  margin-top: 10px;
-  height: 100px;
 }
 
-.container:hover {
+.card_item:hover {
   background-color: yellow;
   cursor: pointer;
+}
+
+.course__title {
+}
+
+.course__hours {
 }

@@ -6,6 +6,7 @@ import useSiderbar from "../hooks/useSiderbar";
 import CourseDetail from "./CourseDetail";
 import CourseinfoCard from "./CourseinfoCard";
 import "./MainData.css";
+import AddButton from "./AddButton";
 
 function MainData() {
   const { key, title, location, courses } = useCenter();
@@ -24,9 +25,9 @@ function MainData() {
   return (
     <>
       <nav className={sidebar ? "centers active" : "centers"}>
-        <div className='container'>
+        <div className='coursebar_container'>
           <div className='center' key={key}>
-            <div className='center__title'>
+            <div>
               <h2>{title}</h2>
               <Link to={`form`}>
                 <button
@@ -44,33 +45,36 @@ function MainData() {
               <p className='center__location'>위치 : {location}</p>
             </div>
           </div>
-        </div>
-        <div>
-          {courses && (
-            <div>
-              {courses.length === 0 ? (
-                <div>
-                  <h1> 등록된 강좌가 없습니다.</h1>
-                </div>
-              ) : (
-                <ul className='courses'>
-                  {courses.map((course) => (
-                    <li className='classcard' key={course.id}>
-                      <CourseinfoCard key={course.id} course={course} />
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <NavLink to={`form/${key}`}>
-                <div
-                  className='AddClass'
-                  onClick={() => {
-                    setMode("CREATE");
-                  }}
-                ></div>
-              </NavLink>
-            </div>
-          )}
+          <div className='course_list_container'>
+            {courses && (
+              <div className='course_container'>
+                {courses.length === 0 ? (
+                  <div>
+                    <h1> 등록된 강좌가 없습니다.</h1>
+                  </div>
+                ) : (
+                  <ul className='courses'>
+                    {courses.map((course) => (
+                      <li className='classcard' key={course.id}>
+                        <CourseinfoCard key={course.id} course={course} />
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <NavLink to={`form/${key}`} className='AddLink'>
+                  <div className='AddContainer'>
+                    <div
+                      className='AddClass'
+                      onClick={() => {
+                        setMode("CREATE");
+                      }}
+                    ></div>
+                  </div>
+                </NavLink>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
       <CourseDetail />
