@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import styles from './SignUp.module.css';
 import Footer from '../Footer';
+import { NavLink } from 'react-router-dom';
+import useActions from '../../hooks/useActions';
 
 function SignUp() {
   // const [submit, setSubmit] = useState('');
 
   const [modalOpen, setModalOpen] = useState(false);
+  const { mode, setMode } = useActions();
 
   const closeModal = () => {
     setModalOpen(false);
+  };
+
+  const onCancel = () => {
+    setMode('WELCOME');
+    console.log(mode);
+    return;
   };
 
   const handleSubmit = (e) => {
@@ -20,6 +29,11 @@ function SignUp() {
     <>
       <div className={styles.Page}>
         <h1 className={styles.signupTitle}>회원가입</h1>
+        <NavLink to="/">
+          <button className={styles.signupCancel} onClick={onCancel}>
+            취소
+          </button>
+        </NavLink>
         <div id={styles.SignUpContainer}>
           <form className={styles.inputForm}>
             <label>성명</label>

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styles from './SignIn.module.css';
-import { Navigate } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 import useActions from '../../hooks/useActions';
 import useMode from '../../hooks/useMode';
 import Footer from '../Footer';
@@ -9,6 +9,7 @@ import Footer from '../Footer';
 function SignIn() {
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
+  const { mode, setMode } = useActions();
 
   const onHome = () => {
     <Navigate to="/" />;
@@ -24,6 +25,12 @@ function SignIn() {
 
   const onClickSignIn = () => {
     console.log('click Signin');
+  };
+
+  const onCancel = () => {
+    setMode('WELCOME');
+    console.log(mode);
+    return;
   };
 
   useEffect(() => {
@@ -61,8 +68,9 @@ function SignIn() {
           >
             로그인
           </button>
-
-          <button onClick={onHome}>취소</button>
+          <NavLink to="/">
+            <button onClick={onCancel}>취소</button>
+          </NavLink>
         </div>
       </div>
       <Footer />
