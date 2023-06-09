@@ -9,7 +9,7 @@ import "./CourseForm.css";
 
 const SELECT_LIST = ["개인", "그룹", "도구", "혼합"];
 
-const INITIAL_VALUES = {
+const INITIAL_CENTER_DATAFORM = {
   date: "",
   price: 0,
   phonenumber: "",
@@ -19,7 +19,7 @@ const INITIAL_VALUES = {
 };
 
 function Create() {
-  const [values, setValues] = useState(INITIAL_VALUES);
+  const [centerValues, setCenterValues] = useState(INITIAL_CENTER_DATAFORM);
 
   const { courses } = useCenter();
   const [nextId, setNextId] = useState(
@@ -40,12 +40,12 @@ function Create() {
     const newCourse = {
       id: nextId,
       key: `cl-${nextId}`,
-      date: values.date,
-      price: parseInt(values.price),
-      phonenumber: values.phonenumber,
-      classtype: values.classtype,
-      taxfree: values.taxfree,
-      desc: values.desc,
+      date: centerValues.date,
+      price: parseInt(centerValues.price),
+      phonenumber: centerValues.phonenumber,
+      classtype: centerValues.classtype,
+      taxfree: centerValues.taxfree,
+      desc: centerValues.desc,
     };
     // console.log(newCourse);
     try {
@@ -65,14 +65,14 @@ function Create() {
         setCoursebar(!coursebar);
       }
       setNextId(nextId + 1);
-      setValues(INITIAL_VALUES);
+      setCenterValues(INITIAL_CENTER_DATAFORM);
       setMode("WELCOME");
     }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues((prevValues) => ({
+    setCenterValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
@@ -80,40 +80,44 @@ function Create() {
 
   return (
     <form className='CourseForm' onSubmit={handleCreateSubmit}>
-      <label htmlFor='date'>강좌 날짜</label>
+      <label htmlFor='date'>강의 일정</label>
       <input
         type='date'
         name='date'
-        value={values.date}
+        value={centerValues.date}
         onChange={handleChange}
       />
-      <label htmlFor='price'>대강 가격</label>
+      <label htmlFor='price'>강의 페이</label>
       <input
         type='number'
         name='price'
         min='15000'
         max='50000'
         step='1000'
-        value={values.price}
+        value={centerValues.price}
         onChange={handleChange}
       />
-      <label htmlFor='price'>폰 번호</label>
+      <label htmlFor='price'>연락처</label>
       <input
         type='tel'
         name='phonenumber'
         placeholder='010XXXXXXXX'
-        value={values.phonenumber}
+        value={centerValues.phonenumber}
         onChange={handleChange}
       />
-      <label htmlFor='classtype'>수업 유형</label>
-      <select name='classtype' onChange={handleChange} value={values.classtype}>
+      <label htmlFor='classtype'>강의 과목</label>
+      <select
+        name='classtype'
+        onChange={handleChange}
+        value={centerValues.classtype}
+      >
         {SELECT_LIST.map((item) => (
           <option value={item} key={item}>
             {item}
           </option>
         ))}
       </select>
-      <label htmlFor='taxfree'>세금 감면</label>
+      <label htmlFor='taxfree'>강의료 세금 공제 여부</label>
       <div>
         <label htmlFor='free'>O</label>
         <input
@@ -128,16 +132,16 @@ function Create() {
           type='radio'
           id='notFree'
           name='taxfree'
-          value={"X"}
+          value={false}
           onChange={handleChange}
         />
       </div>
-      <label htmlFor='desc'>상세 내용</label>
+      <label htmlFor='desc'>기타사항</label>
       <textarea
         type='text'
         name='desc'
         placeholder='추가설명'
-        value={values.desc}
+        value={centerValues.desc}
         onChange={handleChange}
       ></textarea>
       <button type='submit' disabled={isSubmitting}>
@@ -157,7 +161,7 @@ function Update() {
   const { sidebar, coursebar } = useSiderbar();
   const { setSidebar, setMode, setCoursebar, setCourse } = useActions();
 
-  const BEFOREVALUES = {
+  const BEFORE_CENTER_VALUES = {
     date: course.date,
     price: course.price,
     phonenumber: course.phonenumber,
@@ -165,7 +169,7 @@ function Update() {
     taxfree: course.taxfree,
     desc: course.desc,
   };
-  const [values, setValues] = useState(BEFOREVALUES);
+  const [centerValues, setCenterValues] = useState(BEFORE_CENTER_VALUES);
 
   const onCancel = () => {
     setMode("WELCOME");
@@ -174,7 +178,7 @@ function Update() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues((prevValues) => ({
+    setCenterValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
@@ -185,12 +189,12 @@ function Update() {
     const newCourse = {
       id: course.id,
       key: course.key,
-      date: values.date,
-      price: values.price,
-      phonenumber: values.phonenumber,
-      classtype: values.classtype,
-      taxfree: values.taxfree,
-      desc: values.desc,
+      date: centerValues.date,
+      price: centerValues.price,
+      phonenumber: centerValues.phonenumber,
+      classtype: centerValues.classtype,
+      taxfree: centerValues.taxfree,
+      desc: centerValues.desc,
     };
     setCourse(newCourse);
     try {
@@ -212,47 +216,51 @@ function Update() {
       if (!coursebar) {
         setCoursebar(!coursebar);
       }
-      setValues(INITIAL_VALUES);
+      setCenterValues(INITIAL_CENTER_DATAFORM);
       setMode("WELCOME");
     }
   };
 
   return (
     <form className='CourseForm' onSubmit={handleUpdateSubmit}>
-      <label htmlFor='date'>강좌 날짜</label>
+      <label htmlFor='date'>강의 일정</label>
       <input
         type='date'
         name='date'
-        value={values.date}
+        value={centerValues.date}
         onChange={handleChange}
       />
-      <label htmlFor='price'>대강 가격</label>
+      <label htmlFor='price'>강의 페이</label>
       <input
         type='number'
         name='price'
         min='15000'
         max='50000'
         step='1000'
-        value={values.price}
+        value={centerValues.price}
         onChange={handleChange}
       />
-      <label htmlFor='price'>폰 번호</label>
+      <label htmlFor='price'>연락처</label>
       <input
         type='tel'
         name='phonenumber'
         placeholder='010XXXXXXXX'
-        value={values.phonenumber}
+        value={centerValues.phonenumber}
         onChange={handleChange}
       />
-      <label htmlFor='classtype'>수업 유형</label>
-      <select name='classtype' onChange={handleChange} value={values.classtype}>
+      <label htmlFor='classtype'>강의 과목</label>
+      <select
+        name='classtype'
+        onChange={handleChange}
+        value={centerValues.classtype}
+      >
         {SELECT_LIST.map((item) => (
           <option value={item} key={item}>
             {item}
           </option>
         ))}
       </select>
-      <label htmlFor='taxfree'>세금 감면</label>
+      <label htmlFor='taxfree'>강의료 세금 공제 여부</label>
       <div>
         <label htmlFor='free'>O</label>
         <input
@@ -267,16 +275,16 @@ function Update() {
           type='radio'
           id='notFree'
           name='taxfree'
-          value={"X"}
+          value={false}
           onChange={handleChange}
         />
       </div>
-      <label htmlFor='desc'>상세 내용</label>
+      <label htmlFor='desc'>기타사항</label>
       <textarea
         type='text'
         name='desc'
         placeholder='추가설명'
-        value={values.desc}
+        value={centerValues.desc}
         onChange={handleChange}
       ></textarea>
       <button type='submit' disabled={isSubmitting}>
