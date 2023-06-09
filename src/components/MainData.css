@@ -62,6 +62,10 @@
   justify-content: center;
 }
 
+.AddClass:hover {
+  background: rgb(190, 217, 228);
+}
+
 .PlusIcon {
   background: rgb(134, 169, 223);
   position: absolute;
@@ -94,6 +98,10 @@
   background: purple;
   top: 50%;
   left: 50%;
+}
+
+.AddClass:hover .PlusIcon {
+  background-color: skyblue;
 }
 
 .courses {
