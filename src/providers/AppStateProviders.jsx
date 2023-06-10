@@ -7,6 +7,7 @@ const AppStateProvider = ({ children }) => {
   const [centers, setCenters] = useState(() => {
     return centerList;
   });
+  console.log(centers);
   const [center, setCenter] = useState([]);
   const [course, setCourse] = useState([]);
   const [sidebar, setSidebar] = useState(false);
