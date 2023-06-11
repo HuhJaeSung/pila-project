@@ -1,24 +1,23 @@
-import React, { useContext, useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import useActions from '../hooks/useActions';
-import './CourseForm.css';
-import AppStateContext from '../contexts/AppStateContext';
+import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
+import useActions from "../hooks/useActions";
+import "./CourseForm.css";
 
-const SELECT_LIST = ['개인', '그룹', '도구', '혼합'];
+const SELECT_LIST = ["개인", "그룹", "도구", "혼합"];
 
 const INITIAL_CENTER_DATAFORM = {
-  date: '',
+  date: "",
   price: 0,
-  phonenumber: '',
-  classtype: '',
+  phonenumber: "",
+  classtype: "",
   taxfree: null,
-  desc: '',
+  desc: "",
 };
 
 function Create() {
   const [centerValues, setCenterValues] = useState(INITIAL_CENTER_DATAFORM);
 
-  const { center, sidebar, coursebar } = useContext(AppStateContext);
+  const { center, sidebar, coursebar } = useActions();
   const [nextId, setNextId] = useState(
     center.courses.length ? center.courses[center.courses.length - 1].id + 1 : 1
   );
@@ -27,7 +26,7 @@ function Create() {
   const { setSidebar, setMode, setCoursebar, setCourse } = useActions();
 
   const onCancel = () => {
-    setMode('WELCOME');
+    setMode("WELCOME");
     return;
   };
 
@@ -62,7 +61,7 @@ function Create() {
       }
       setNextId(nextId + 1);
       setCenterValues(INITIAL_CENTER_DATAFORM);
-      setMode('WELCOME');
+      setMode("WELCOME");
     }
   };
 
@@ -75,35 +74,35 @@ function Create() {
   };
 
   return (
-    <form className="CourseForm" onSubmit={handleCreateSubmit}>
-      <label htmlFor="date">강의 일정</label>
+    <form className='CourseForm' onSubmit={handleCreateSubmit}>
+      <label htmlFor='date'>강의 일정</label>
       <input
-        type="date"
-        name="date"
+        type='date'
+        name='date'
         value={centerValues.date}
         onChange={handleChange}
       />
-      <label htmlFor="price">강의 페이</label>
+      <label htmlFor='price'>강의 페이</label>
       <input
-        type="number"
-        name="price"
-        min="15000"
-        max="50000"
-        step="1000"
+        type='number'
+        name='price'
+        min='15000'
+        max='50000'
+        step='1000'
         value={centerValues.price}
         onChange={handleChange}
       />
-      <label htmlFor="price">연락처</label>
+      <label htmlFor='price'>연락처</label>
       <input
-        type="tel"
-        name="phonenumber"
-        placeholder="010XXXXXXXX"
+        type='tel'
+        name='phonenumber'
+        placeholder='010XXXXXXXX'
         value={centerValues.phonenumber}
         onChange={handleChange}
       />
-      <label htmlFor="classtype">강의 과목</label>
+      <label htmlFor='classtype'>강의 과목</label>
       <select
-        name="classtype"
+        name='classtype'
         onChange={handleChange}
         value={centerValues.classtype}
       >
@@ -113,34 +112,34 @@ function Create() {
           </option>
         ))}
       </select>
-      <label htmlFor="taxfree">강의료 세금 공제 여부</label>
+      <label htmlFor='taxfree'>강의료 세금 공제 여부</label>
       <div>
-        <label htmlFor="free">O</label>
+        <label htmlFor='free'>O</label>
         <input
-          type="radio"
-          id="free"
-          name="taxfree"
+          type='radio'
+          id='free'
+          name='taxfree'
           value={true}
           onChange={handleChange}
         />
-        <label htmlFor="notFree">X</label>
+        <label htmlFor='notFree'>X</label>
         <input
-          type="radio"
-          id="notFree"
-          name="taxfree"
+          type='radio'
+          id='notFree'
+          name='taxfree'
           value={false}
           onChange={handleChange}
         />
       </div>
-      <label htmlFor="desc">기타사항</label>
+      <label htmlFor='desc'>기타사항</label>
       <textarea
-        type="text"
-        name="desc"
-        placeholder="추가설명"
+        type='text'
+        name='desc'
+        placeholder='추가설명'
         value={centerValues.desc}
         onChange={handleChange}
       ></textarea>
-      <button type="submit" disabled={isSubmitting}>
+      <button type='submit' disabled={isSubmitting}>
         등록하기
       </button>
       {submittingError?.message && <div>{submittingError.message}</div>}
@@ -152,7 +151,7 @@ function Create() {
 function Update() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittingError, setSubmittingError] = useState(null);
-  const { center, course, sidebar, coursebar } = useContext(AppStateContext);
+  const { center, course, sidebar, coursebar } = useActions();
   const { setSidebar, setMode, setCoursebar, setCourse } = useActions();
 
   const { date, price, phonenumber, classtype, taxfree, desc } = course;
@@ -168,7 +167,7 @@ function Update() {
   const [centerValues, setCenterValues] = useState(BEFORE_CENTER_VALUES);
 
   const onCancel = () => {
-    setMode('WELCOME');
+    setMode("WELCOME");
     return;
   };
 
@@ -213,40 +212,40 @@ function Update() {
         setCoursebar(!coursebar);
       }
       setCenterValues(INITIAL_CENTER_DATAFORM);
-      setMode('WELCOME');
+      setMode("WELCOME");
     }
   };
 
   return (
-    <form className="CourseForm" onSubmit={handleUpdateSubmit}>
-      <label htmlFor="date">강의 일정</label>
+    <form className='CourseForm' onSubmit={handleUpdateSubmit}>
+      <label htmlFor='date'>강의 일정</label>
       <input
-        type="date"
-        name="date"
+        type='date'
+        name='date'
         value={centerValues.date}
         onChange={handleChange}
       />
-      <label htmlFor="price">강의 페이</label>
+      <label htmlFor='price'>강의 페이</label>
       <input
-        type="number"
-        name="price"
-        min="15000"
-        max="50000"
-        step="1000"
+        type='number'
+        name='price'
+        min='15000'
+        max='50000'
+        step='1000'
         value={centerValues.price}
         onChange={handleChange}
       />
-      <label htmlFor="price">연락처</label>
+      <label htmlFor='price'>연락처</label>
       <input
-        type="tel"
-        name="phonenumber"
-        placeholder="010XXXXXXXX"
+        type='tel'
+        name='phonenumber'
+        placeholder='010XXXXXXXX'
         value={centerValues.phonenumber}
         onChange={handleChange}
       />
-      <label htmlFor="classtype">강의 과목</label>
+      <label htmlFor='classtype'>강의 과목</label>
       <select
-        name="classtype"
+        name='classtype'
         onChange={handleChange}
         value={centerValues.classtype}
       >
@@ -256,34 +255,34 @@ function Update() {
           </option>
         ))}
       </select>
-      <label htmlFor="taxfree">강의료 세금 공제 여부</label>
+      <label htmlFor='taxfree'>강의료 세금 공제 여부</label>
       <div>
-        <label htmlFor="free">O</label>
+        <label htmlFor='free'>O</label>
         <input
-          type="radio"
-          id="free"
-          name="taxfree"
+          type='radio'
+          id='free'
+          name='taxfree'
           value={true}
           onChange={handleChange}
         />
-        <label htmlFor="notFree">X</label>
+        <label htmlFor='notFree'>X</label>
         <input
-          type="radio"
-          id="notFree"
-          name="taxfree"
+          type='radio'
+          id='notFree'
+          name='taxfree'
           value={false}
           onChange={handleChange}
         />
       </div>
-      <label htmlFor="desc">기타사항</label>
+      <label htmlFor='desc'>기타사항</label>
       <textarea
-        type="text"
-        name="desc"
-        placeholder="추가설명"
+        type='text'
+        name='desc'
+        placeholder='추가설명'
         value={centerValues.desc}
         onChange={handleChange}
       ></textarea>
-      <button type="submit" disabled={isSubmitting}>
+      <button type='submit' disabled={isSubmitting}>
         수정하기
       </button>
       {submittingError?.message && <div>{submittingError.message}</div>}
@@ -293,14 +292,14 @@ function Update() {
 }
 
 function CourseForm() {
-  const { mode } = useContext(AppStateContext);
+  const { mode } = useActions();
   let content = null;
 
-  if (mode === 'WELCOME') {
-    return <Navigate to="/" />;
-  } else if (mode === 'CREATE') {
+  if (mode === "WELCOME") {
+    return <Navigate to='/' />;
+  } else if (mode === "CREATE") {
     content = <Create />;
-  } else if (mode === 'UPDATE') {
+  } else if (mode === "UPDATE") {
     content = <Update />;
   }
   return <div>{content}</div>;
