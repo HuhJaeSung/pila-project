@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import AppStateContext from "../contexts/AppStateContext";
+import { useState } from 'react';
 
 export default function useCourse() {
-  const { course } = useContext(AppStateContext);
-  return course;
+  const [course, setCourse] = useState([]);
+  return [course, setCourse];
 }

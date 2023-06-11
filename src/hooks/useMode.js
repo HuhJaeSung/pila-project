@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import AppStateContext from "../contexts/AppStateContext";
+import { useState } from 'react';
 
 export default function useMode() {
-  const { mode } = useContext(AppStateContext);
-  return mode;
+  const [mode, setMode] = useState('WELCOME');
+  return [mode, setMode];
 }

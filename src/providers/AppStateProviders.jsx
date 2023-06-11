@@ -1,18 +1,18 @@
-import { useCallback, useState } from "react";
-import AppStateContext from "../contexts/AppStateContext";
-import centerList from "../classdata.json";
+import { useCallback } from 'react';
+import AppStateContext from '../contexts/AppStateContext';
+import useCenters from '../hooks/useCenters';
+import useCenter from '../hooks/useCenter';
+import useCourse from '../hooks/useCourse';
+import useMode from '../hooks/useMode';
+import useSiderbar from '../hooks/useSiderbar';
 
 const AppStateProvider = ({ children }) => {
-  // useState의 초기값으로 콜백을 호출하면, 맨 처음 한 번만 실행한다.
-  const [centers, setCenters] = useState(() => {
-    return centerList;
-  });
-  console.log(centers);
-  const [center, setCenter] = useState([]);
-  const [course, setCourse] = useState([]);
-  const [sidebar, setSidebar] = useState(false);
-  const [coursebar, setCoursebar] = useState(false);
-  const [mode, setMode] = useState("WELCOME");
+  const [centers, setCenters] = useCenters('Provider');
+  const [center, setCenter] = useCenter();
+  const [course, setCourse] = useCourse();
+  const [sidebar, setSidebar, coursebar, setCoursebar] = useSiderbar();
+  console.log('sidebar :', sidebar);
+  const [mode, setMode] = useMode();
 
   const toggleSide = useCallback((bar) => {
     return !bar;
@@ -29,13 +29,17 @@ const AppStateProvider = ({ children }) => {
 
   const addToCenter = useCallback(
     (key) => {
+      console.log('modified sidebar :', sidebar);
       if (!sidebar) {
         // addToCenter의 경우엔 false인 경우 밖에 없음
         // sidebar가 false 이면, Sidebar를 true로 바꾼다
-        setSidebar(true);
+        console.log('before sidebar :', sidebar);
+        setSidebar();
+        console.log('after set sidebar :', sidebar);
       }
       setCoursebar(false);
       const find = centers.find((c) => c.key === key);
+      console.log('find : ', find);
       setCenter(find);
     },
     [center, sidebar, centers]

@@ -1,15 +1,13 @@
-import React from "react";
-import useCenter from "../hooks/useCenter";
-import styles from "./CourseDatail.module.css";
-import { Link } from "react-router-dom";
-import useActions from "../hooks/useActions";
-import useCourse from "../hooks/useCourse";
-import useSiderbar from "../hooks/useSiderbar";
+import React, { useContext } from 'react';
+import styles from './CourseDatail.module.css';
+import { Link } from 'react-router-dom';
+import useActions from '../hooks/useActions';
+import useSiderbar from '../hooks/useSiderbar';
+import AppStateContext from '../contexts/AppStateContext';
 
 function CourseDetail() {
-  const center = useCenter();
-  const course = useCourse();
-  const { coursebar } = useSiderbar();
+  const { course, center, sidebar, coursebar } = useContext(AppStateContext);
+
   const { setMode, setCoursebar } = useActions();
 
   const handleClose = () => {
@@ -18,9 +16,9 @@ function CourseDetail() {
 
   return (
     <>
-      <div className={coursebar ? styles.bar : styles.baroff}>
+      <div className={!coursebar ? styles.bar : styles.baroff}>
         <div className={styles.container}>
-          <div className='close'>
+          <div className="close">
             <button onClick={handleClose}>❌</button>
           </div>
           <p>id: {course.id}</p>
@@ -35,7 +33,7 @@ function CourseDetail() {
               <button
                 className={styles.UpdateButton}
                 onClick={() => {
-                  setMode("UPDATE");
+                  setMode('UPDATE');
                 }}
               >
                 강좌 수정하기

@@ -1,28 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Marker,
-  Circle,
   Container as MapDiv,
   NaverMap,
   useNavermaps,
 } from 'react-naver-maps';
-import useCenters from '../hooks/useCenters';
 import useActions from '../hooks/useActions';
 import './NaverApiMap.css';
-import useCenter from '../hooks/useCenter';
 import AddButton from './AddButton';
+import AppStateContext from '../contexts/AppStateContext';
 
-const HOME_PATH = window.HOME_PATH || '.';
+// const HOME_PATH = window.HOME_PATH || '.';
 
 function NaverApiMap() {
   // const navermaps = window.naver.maps; // 혹은 withNavermaps hoc을 사용
   // NaverMapAPI v0.1로 업데이트 후 위 내용 아래로 변경
   const navermaps = useNavermaps();
-
-  const centers = useCenters();
+  const { center, centers } = useContext(AppStateContext);
   const { addToCenter } = useActions();
   const [myPosi, setMyPosi] = useState({ lat: 37.3595704, lon: 127.105399 });
-  const center = useCenter();
 
   useEffect(() => {
     if (navigator.geolocation) {

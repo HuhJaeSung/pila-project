@@ -1,10 +1,7 @@
 import React from 'react';
 import './Footer.css';
-import useActions from '../hooks/useActions';
 
 function Footer() {
-  const { setMode } = useActions();
-
   return (
     <>
       <div className="footer-background">
