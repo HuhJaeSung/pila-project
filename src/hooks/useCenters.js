@@ -7,6 +7,6 @@ export default function useCenters(name) {
     return centerList;
   });
   // To Do : 매번 Center List가 여러번 호출되는 이유 알아내기
-  console.log(name);
+  console.log(name, centers);
   return [centers, setCenters];
 }

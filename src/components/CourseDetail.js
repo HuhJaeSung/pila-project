@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./CourseDatail.module.css";
-import { Link } from "react-router-dom";
-import useActions from "../hooks/useActions";
+import React from 'react';
+import styles from './CourseDatail.module.css';
+import { Link } from 'react-router-dom';
+import useActions from '../hooks/useActions';
 
 function CourseDetail() {
   const { course, center, coursebar } = useActions();
@@ -13,9 +13,9 @@ function CourseDetail() {
 
   return (
     <>
-      <div className={!coursebar ? styles.bar : styles.baroff}>
+      <div className={coursebar ? styles.bar : styles.baroff}>
         <div className={styles.container}>
-          <div className='close'>
+          <div className="close">
             <button onClick={handleClose}>❌</button>
           </div>
           <p>id: {course.id}</p>
@@ -30,7 +30,7 @@ function CourseDetail() {
               <button
                 className={styles.UpdateButton}
                 onClick={() => {
-                  setMode("UPDATE");
+                  setMode('UPDATE');
                 }}
               >
                 강좌 수정하기
