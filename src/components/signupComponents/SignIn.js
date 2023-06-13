@@ -11,20 +11,19 @@ function SignIn() {
   const [inputPw, setInputPw] = useState('');
   const { mode, setMode } = useActions();
 
-  const onHome = () => {
-    <Navigate to="/" />;
-  };
-
   const handleInputId = (e) => {
     setInputId(e.target.value);
+    console.log(inputId);
   };
 
   const handleInputPw = (e) => {
     setInputPw(e.target.value);
+    console.log(inputPw);
   };
 
   const onClickSignIn = () => {
     console.log('click Signin');
+    // <Navigate to="" />
   };
 
   const onCancel = () => {
@@ -34,10 +33,10 @@ function SignIn() {
   };
 
   useEffect(() => {
-    axios
-      .get('/Signin')
-      .then((res) => console.log(res))
-      .catch();
+    // axios
+    //   .get('/Signin')
+    //   .then((res) => console.log(res))
+    //   .catch();
   }, []);
 
   return (
@@ -61,13 +60,15 @@ function SignIn() {
           />
         </div>
         <div>
-          <button
-            type="button"
-            onClick={onClickSignIn}
-            className={styles.Button}
-          >
-            로그인
-          </button>
+          <NavLink to="/LoggedInComponents/SignInMap">
+            <button
+              type="button"
+              onClick={onClickSignIn}
+              className={styles.Button}
+            >
+              로그인
+            </button>
+          </NavLink>
           <NavLink to="/">
             <button onClick={onCancel}>취소</button>
           </NavLink>
