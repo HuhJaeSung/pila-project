@@ -9,6 +9,7 @@ import CenterForm from './components/CenterForm';
 import AppStateProviders from './providers/AppStateProviders';
 import SignUp from './components/signupComponents/SignUp';
 import SignIn from './components/signupComponents/SignIn';
+import LoggedInApp from './components/LoggedInComponents/SignInMap';
 
 // Before  :  ReactDOM 라이브러리의 render 함수로
 //  => ( <App /> 컴포넌트를 root 위치에 )
@@ -36,6 +37,7 @@ root.render(
             </Route>
             <Route path="SignUp" element={<SignUp />} />
             <Route path="SignIn" element={<SignIn />} />
+            <Route path="LoggedInApp" element={<LoggedInApp />} />
           </Routes>
           {/* children */}
         </AppStateProviders>

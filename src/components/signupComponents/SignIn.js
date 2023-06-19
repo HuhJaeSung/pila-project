@@ -60,7 +60,7 @@ function SignIn() {
           />
         </div>
         <div>
-          <NavLink to="/LoggedInComponents/SignInMap">
+          <NavLink to="/LoggedInApp">
             <button
               type="button"
               onClick={onClickSignIn}
