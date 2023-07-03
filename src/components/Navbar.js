@@ -1,48 +1,48 @@
-import React, { useState } from "react";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import { Link, NavLink } from "react-router-dom";
-import { SidebarData } from "./SidebarData";
-import "./Navbar.css";
-import { IconContext } from "react-icons";
-import useActions from "../hooks/useActions";
+import React, { useState } from 'react';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+import { Link, NavLink } from 'react-router-dom';
+import { SidebarData } from './SidebarData';
+import './Navbar.css';
+import { IconContext } from 'react-icons';
+import useActions from '../hooks/useActions';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const [classbar, setClassbar] = useState(false);
-  const { setMode } = useActions();
+  // const { setMode } = useActions();
 
   const showSidebar = () => setSidebar(!sidebar);
   const showClassbar = () => setClassbar(!classbar);
   return (
     <>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <div className='nav'>
-          <Link to='#' className='menu-bars'>
+      <IconContext.Provider value={{ color: '#fff' }}>
+        <div className="nav">
+          <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <ul className='menu'>
+          <ul className="menu">
             <li>
-              <NavLink className='Button' to='/'>
+              <NavLink className="Button" to="/">
                 놀아요
               </NavLink>
             </li>
             <li>
-              <NavLink className='Button' to='/SignIn'>
+              <NavLink className="Button" to="/SignIn">
                 로그인
               </NavLink>
             </li>
             <li>
-              <NavLink className='Button' to='/SignUp'>
+              <NavLink className="Button" to="/SignUp">
                 회원가입
               </NavLink>
             </li>
           </ul>
         </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className='nav-menu-items'>
-            <li className='navbar-toggle'>
-              <Link to='#' className='menu-bars'>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className="nav-menu-items">
+            <li className="navbar-toggle">
+              <Link to="#" className="menu-bars">
                 <AiIcons.AiOutlineClose
                   onClick={() => {
                     showSidebar();

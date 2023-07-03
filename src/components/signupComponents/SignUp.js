@@ -23,7 +23,7 @@ function SignUp() {
   const handleSubmit = (e) => {
     // setSubmit(e.target.value)
     setModalOpen(true);
-    console.log('Hi');
+    console.log('Hi', e);
   };
   return (
     <>
