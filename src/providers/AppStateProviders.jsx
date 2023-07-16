@@ -12,7 +12,9 @@ const AppStateProvider = ({ children }) => {
   const [center, setCenter] = useCenter();
   const [course, setCourse] = useCourse();
   const [sidebar, coursebar, setSidebar, setCoursebar] = useSiderbar();
+  // test용
   console.log('sidebar :', sidebar);
+  // test용
   const [mode, setMode] = useMode();
 
   const toggleSide = useCallback((bar) => {
