@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 // import Navbar from './components/Navbar';
 // // import NaverApiMap from './components/NaverApiMap';
-=======
-// import Navbar from './components/navbar';
-// import NaverApiMap from './components/NaverApiMap';
->>>>>>> 20772f49968ed7997cc386189537ceaf0d639f5c
 // import './App.css';
 // import MainData from './components/MainData';
 // import CourseDetail from './components/CourseDetail';
