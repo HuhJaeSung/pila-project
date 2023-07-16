@@ -6,10 +6,12 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import useActions from '../hooks/useActions';
+import { useAuth } from '../providers/AuthContext';
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   const [classbar, setClassbar] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
   // const { setMode } = useActions();
 
   const showSidebar = () => setSidebar(!sidebar);
@@ -22,6 +24,9 @@ function Navbar() {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <ul className="menu">
+            <li className="isLoggedIn">
+              {isLoggedIn ? '로그인 상태' : '비로그인 상태'}
+            </li>
             <li>
               <NavLink className="Button" to="/">
                 놀아요
@@ -29,7 +34,7 @@ function Navbar() {
             </li>
             <li>
               <NavLink className="Button" to="/SignIn">
-                로그인
+                {isLoggedIn ? '로그아웃' : '로그인'}
               </NavLink>
             </li>
             <li>

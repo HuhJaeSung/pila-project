@@ -1,15 +1,17 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { useEffect, useState } from 'react';
 import styles from './SignIn.module.css';
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useActions from '../../hooks/useActions';
-import useMode from '../../hooks/useMode';
+// import useMode from '../../hooks/useMode';
 import Footer from '../Footer';
+import { useAuth } from '../../providers/AuthContext';
 
 function SignIn() {
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
   const { mode, setMode } = useActions();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
 
   const handleInputId = (e) => {
     setInputId(e.target.value);
@@ -22,8 +24,8 @@ function SignIn() {
   };
 
   const onClickSignIn = () => {
-    console.log('click Signin');
-    // <Navigate to="" />
+    isLoggedIn ? setIsLoggedIn(false) : setIsLoggedIn(true);
+    console.log('isLoggedIn?', isLoggedIn);
   };
 
   const onCancel = () => {
@@ -60,15 +62,13 @@ function SignIn() {
           />
         </div>
         <div>
-          <NavLink to="/LoggedInApp">
-            <button
-              type="button"
-              onClick={onClickSignIn}
-              className={styles.Button}
-            >
-              로그인
-            </button>
-          </NavLink>
+          <button
+            type="button"
+            onClick={onClickSignIn}
+            className={styles.Button}
+          >
+            {isLoggedIn ? '로그아웃' : '로그인'}
+          </button>
           <NavLink to="/">
             <button onClick={onCancel}>취소</button>
           </NavLink>
