@@ -1,4 +1,4 @@
-.AddButton {
+.AddClassButton {
   background: white;
   position: absolute;
   bottom: 120px;
@@ -10,7 +10,7 @@
   border-radius: 43%;
 }
 
-.AddButton:after {
+.AddClassButton:after {
   content: '';
   position: absolute;
   transform: translate(-50%, -50%);
@@ -21,7 +21,7 @@
   left: 50%;
 }
 
-.AddButton:before {
+.AddClassButton:before {
   content: '';
   position: absolute;
   top: 50%;
@@ -32,13 +32,13 @@
   width: 4px;
 }
 
-.AddButton:hover:before,
-.AddButton:hover:after {
+.AddClassButton:hover:before,
+.AddClassButton:hover:after {
   background: #fff;
   transition: 0.2s;
 }
 
-.AddButton:hover {
+.AddClassButton:hover {
   background-color: #060b25;
   transition: 0.2s;
 }
